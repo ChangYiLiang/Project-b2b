@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.i9he.m2b.mapper.PromotionMapper">
+  <resultMap id="BaseResultMap" type="com.i9he.m2b.model.Promotion">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="promotion_url" jdbcType="VARCHAR" property="promotionUrl" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, category_id, promotion_url, title
+  </sql>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.i9he.m2b.model.Promotion" useGeneratedKeys="true">
+    insert into b2b_promotion
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="categoryId != null">
+        category_id,
+      </if>
+      <if test="promotionUrl != null">
+        promotion_url,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="promotionUrl != null">
+        #{promotionUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  <select id="getallpromotion" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    SELECT c.name,p.id,p.title FROM b2b_promotion p
+	LEFT JOIN b2b_category c ON p.`category_id` = c.`id`
+  </select>
+  
+  <delete id="DeletePromotion" parameterType="java.lang.Integer">
+    	DELETE FROM b2b_promotion WHERE id = #{id,jdbcType=INTEGER};
+  </delete>
+  
+  <select id="GetPromotion" parameterType="com.i9he.m2b.model.search.PromotionSearchModel" resultMap="BaseResultMap">
+    SELECT c.name,p.id,p.title,p.promotion_url FROM b2b_promotion p
+	LEFT JOIN b2b_category c ON p.`category_id` = c.`id`
+    order by id desc
+    limit #{startPage}, #{pageSize}
+  </select>
+ 
+  <select id="GetPromotionCount" parameterType="com.i9he.m2b.model.search.PromotionSearchModel" resultType="int">
+  	SELECT count(1) FROM b2b_promotion p
+	LEFT JOIN b2b_category c ON p.`category_id` = c.`id`
+  </select>
+  
+  <select id="GetTitle" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    SELECT * from b2b_promotion where category_id = #{categoryId,jdbcType=INTEGER} limit 0,3
+  </select>
+ 
+</mapper>

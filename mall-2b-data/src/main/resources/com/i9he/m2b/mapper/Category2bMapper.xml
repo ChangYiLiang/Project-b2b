@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.i9he.m2b.mapper.Category2bMapper">
+	<!--
+	<cache type="org.mybatis.caches.ehcache.LoggingEhcache">
+		<property name="timeToIdleSeconds" value="3600" />
+		<property name="timeToLiveSeconds" value="3600" />
+		<property name="eternal" value="true"/>
+		<property name="maxEntriesLocalHeap" value="1000" />
+		<property name="maxEntriesLocalDisk" value="10000000" />
+		<property name="memoryStoreEvictionPolicy" value="LRU" />
+	</cache>
+	-->
+  <resultMap id="BaseResultMap" type="com.i9he.m2b.model.Category">
+    <!--
+    www.9he.com
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+    <result column="cat_desc" jdbcType="VARCHAR" property="catDesc" />
+    <result column="structure" jdbcType="VARCHAR" property="structure" />
+    <result column="cat_lv" jdbcType="INTEGER" property="catLV" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="is_show" jdbcType="INTEGER" property="isShow" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+    www.9he.com
+    -->
+    id, name, parent_id, cat_desc, structure, cat_lv, sort, is_show
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--
+    www.9he.com
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from b2b_category
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--
+    www.9he.com
+    -->
+    delete from b2b_category
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.i9he.m2b.model.Category">
+    <!--
+    www.9he.com
+    -->
+    insert into b2b_category (id, name, parent_id, 
+      cat_desc, structure, cat_lv, sort, is_show)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER}, 
+      #{catDesc,jdbcType=VARCHAR}, #{structure,jdbcType=VARCHAR}, #{catLV,jdbcType=INTEGER}, #{sort,jdbcType=INTEGER}, #{isShow,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.i9he.m2b.model.Category">
+    <!--
+    www.9he.com
+    -->
+    insert into b2b_category
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="catDesc != null">
+        cat_desc,
+      </if>
+      <if test="structure != null">
+        structure,
+      </if>
+      <if test="catLV != null">
+        cat_lv,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="isShow != null">
+        is_show,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="catDesc != null">
+        #{catDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="structure != null">
+        #{structure,jdbcType=VARCHAR},
+      </if>
+      <if test="catLV != null">
+        #{catLV,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="isShow != null">
+        #{isShow,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.i9he.m2b.model.Category">
+    <!--
+    www.9he.com
+    -->
+    update b2b_category
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="catDesc != null">
+        cat_desc = #{catDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="structure != null">
+        structure = #{structure,jdbcType=VARCHAR},
+      </if>
+      <if test="catLV != null">
+        cat_lv = #{catLV,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="isShow != null">
+        is_show = #{isShow,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.i9he.m2b.model.Category">
+    <!--
+    www.9he.com
+    -->
+    update b2b_category
+    set name = #{name,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      cat_desc = #{catDesc,jdbcType=VARCHAR},
+      structure = #{structure,jdbcType=VARCHAR},
+      cat_lv = #{catLV,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
+      is_show = #{isShow,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectIdByparentId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+     select id
+     form b2b_category
+     where parent_id = #{parentId,jdbcType=INTEGER}
+  </select>
+  
+  <select id="getallcategory" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from b2b_category order by structure
+  </select>
+  
+  <select id="getmax" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select max(id) from b2b_category
+  </select>
+  
+  <select id="getmaxcat" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--
+    www.9he.com
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from b2b_category where cat_lv =1 and is_show = 1 order by sort
+  </select>
+  
+  <select id="getsecondcat" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--
+    www.9he.com
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from b2b_category where parent_id = #{parentId,jdbcType=INTEGER} and is_show = 1 ORDER BY sort
+  </select>
+  
+</mapper>

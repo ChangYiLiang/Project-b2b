@@ -1,0 +1,26 @@
+.reghead{
+	height:80px;
+}
+.rg-white{
+	background-color:white;
+}
+.content{
+	margin-top :10px;
+	margin-left:70px;
+	width:1200px;
+	height:600px;
+}
+
+.title{
+	margin-left:18px;
+	font-size:25px;
+}
+.container{
+	padding-top:15px;
+}
+.rg-content{
+	
+}
+.error,#zcxy{
+	color:#a94442;
+}

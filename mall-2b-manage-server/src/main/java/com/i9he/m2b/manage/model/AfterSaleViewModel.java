@@ -1,0 +1,19 @@
+package com.i9he.m2b.manage.model;
+
+import com.i9he.m2b.model.AfterSale;
+
+public class AfterSaleViewModel extends AfterSale {
+
+	private static final long serialVersionUID = 1L;
+	
+	private String username;
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+}

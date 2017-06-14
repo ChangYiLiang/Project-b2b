@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.i9he.m2b.mapper.Item2bMapper">
+  <resultMap id="BaseResultMap" type="com.i9he.m2b.model.Item">
+    <!--
+    www.9he.com
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="brand_id" jdbcType="INTEGER" property="brandId" />
+    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="created_date" jdbcType="TIMESTAMP" property="createdDate" />
+    <result column="item_type" jdbcType="TINYINT" property="itemType" />
+    <result column="args0" jdbcType="VARCHAR" property="args0" />
+    <result column="args1" jdbcType="VARCHAR" property="args1" />
+    <result column="args2" jdbcType="VARCHAR" property="args2" />
+    <result column="args3" jdbcType="VARCHAR" property="args3" />
+    <result column="args4" jdbcType="VARCHAR" property="args4" />
+    <result column="is_show" jdbcType="INTEGER" property="isShow" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+    www.9he.com
+    -->
+    id, title, brand_id, category_id, price, created_date, item_type, args0, args1, args2, 
+    args3, args4
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--
+    www.9he.com
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from b2b_item
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--
+    www.9he.com
+    -->
+    delete from b2b_item
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.i9he.m2b.model.Item">
+    <!--
+    www.9he.com
+    -->
+    insert into b2b_item (id, title, brand_id, 
+      category_id, price, created_date, 
+      item_type, args0, args1, 
+      args2, args3, args4
+      )
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{brandId,jdbcType=INTEGER}, 
+      #{categoryId,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL}, #{createdDate,jdbcType=TIMESTAMP}, 
+      #{itemType,jdbcType=TINYINT}, #{args0,jdbcType=VARCHAR}, #{args1,jdbcType=VARCHAR}, 
+      #{args2,jdbcType=VARCHAR}, #{args3,jdbcType=VARCHAR}, #{args4,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.i9he.m2b.model.Item">
+    <!--
+    www.9he.com
+    -->
+    insert into b2b_item
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="brandId != null">
+        brand_id,
+      </if>
+      <if test="categoryId != null">
+        category_id,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="createdDate != null">
+        created_date,
+      </if>
+      <if test="itemType != null">
+        item_type,
+      </if>
+      <if test="args0 != null">
+        args0,
+      </if>
+      <if test="args1 != null">
+        args1,
+      </if>
+      <if test="args2 != null">
+        args2,
+      </if>
+      <if test="args3 != null">
+        args3,
+      </if>
+      <if test="args4 != null">
+        args4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="brandId != null">
+        #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="createdDate != null">
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="itemType != null">
+        #{itemType,jdbcType=TINYINT},
+      </if>
+      <if test="args0 != null">
+        #{args0,jdbcType=VARCHAR},
+      </if>
+      <if test="args1 != null">
+        #{args1,jdbcType=VARCHAR},
+      </if>
+      <if test="args2 != null">
+        #{args2,jdbcType=VARCHAR},
+      </if>
+      <if test="args3 != null">
+        #{args3,jdbcType=VARCHAR},
+      </if>
+      <if test="args4 != null">
+        #{args4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.i9he.m2b.model.Item">
+    <!--
+    www.9he.com
+    -->
+    update b2b_item
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="brandId != null">
+        brand_id = #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null">
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="createdDate != null">
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="itemType != null">
+        item_type = #{itemType,jdbcType=TINYINT},
+      </if>
+      <if test="args0 != null">
+        args0 = #{args0,jdbcType=VARCHAR},
+      </if>
+      <if test="args1 != null">
+        args1 = #{args1,jdbcType=VARCHAR},
+      </if>
+      <if test="args2 != null">
+        args2 = #{args2,jdbcType=VARCHAR},
+      </if>
+      <if test="args3 != null">
+        args3 = #{args3,jdbcType=VARCHAR},
+      </if>
+      <if test="args4 != null">
+        args4 = #{args4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.i9he.m2b.model.Item">
+    <!--
+    www.9he.com
+    -->
+    update b2b_item
+    set title = #{title,jdbcType=VARCHAR},
+      brand_id = #{brandId,jdbcType=INTEGER},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      price = #{price,jdbcType=DECIMAL},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      item_type = #{itemType,jdbcType=TINYINT},
+      args0 = #{args0,jdbcType=VARCHAR},
+      args1 = #{args1,jdbcType=VARCHAR},
+      args2 = #{args2,jdbcType=VARCHAR},
+      args3 = #{args3,jdbcType=VARCHAR},
+      args4 = #{args4,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+<select id="getItemListByOrderId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select m.*
+		from b2b_item m
+		inner join ord_goods_item o on m.id=o.mall_item_id
+		where o.order_id=#{orderId}
+</select>
+<select id="getItemListBygoodId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select mi.* from b2b_item as mi
+		where mi.id in (select item_id from b2b_goods_item where show_type=22 and goods_id=#{goodId,jdbcType=VARCHAR})
+</select>
+
+<select id="getallitem" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from b2b_item
+</select>
+
+<sql id="getItemCondition">
+  	where 1=1
+  	<!-- 状态查询 -->
+  	<if test="itemType != null">
+  		and item_type = #{itemType}
+  	</if>
+  	<trim prefix="and (" suffix=")" prefixOverrides="and|or">
+	  	<if test="keyword != null and keyword != ''">
+			and CONCAT_WS(',',title) like CONCAT('%', #{keyword}, '%')
+		</if>
+	</trim>
+</sql>
+
+<select id="getItem" parameterType="com.i9he.m2b.model.search.ItemSearchModel" resultMap="BaseResultMap">
+    <!--
+    www.9he.com
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from b2b_item
+    <include refid="getItemCondition" />
+    <!--
+    where 1=1 and item_type = #{itemType}
+    -->
+    order by id desc
+    limit #{startPage}, #{pageSize}
+</select>
+ 
+<select id="getItemCount" parameterType="com.i9he.m2b.model.search.ItemSearchModel" resultType="int">
+  	select count(1)
+  	from b2b_item
+  	<include refid="getItemCondition" />
+  	<!--
+  	where 1=1 and item_type = #{itemType}
+  	--> 
+</select>
+
+<select id="getitemType" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from b2b_item where item_type = #{itemType,jdbcType=TINYINT}
+</select>
+
+<select id="getjoinitem" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		SELECT i.title,i.id,i.price FROM b2b_item AS i 
+		LEFT JOIN b2b_goods_item AS gi ON gi.item_id = i.id 
+		WHERE gi.goods_id = #{goodsId} AND gi.is_show = 1 AND i.item_type= #{itemType} order by gi.sort;
+</select>
+
+<select id="getjoinitem2" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		SELECT i.title,i.id,i.price,gi.is_show,gi.sort FROM b2b_item AS i 
+		LEFT JOIN b2b_goods_item AS gi ON gi.item_id = i.id 
+		WHERE gi.goods_id = #{goodsId} AND i.item_type= #{itemType} order by gi.sort;
+</select>
+
+<select id="getDesclog" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		SELECT * from b2b_item order by id desc limit 0,#{num}
+</select>
+
+</mapper>

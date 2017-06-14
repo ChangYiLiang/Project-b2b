@@ -1,0 +1,26 @@
+.big-cart{width:1200px;min-height:800px;margin:0px auto}
+.h-sty{color:#1b9d97;font-weight:bold;margin-top:20px;}
+.catr0{position:relative;left:270px !important;top:100px !important}
+.heading{background-color:#EAF8FF;}
+#checkAllBox{position:relative;top:2px;left:-15px}
+.checkBox{position:relative;left:-29px}
+.heading > th,.bodying > td{font-size:15px !important;font-weight:normal;border:0px solid #ccc !important}
+.pull-left img{width:110px;height:80px;border:1px solid #ccc;margin-left:-69px}
+.left02{margin-left:41px;font-size:15px;margin-top:26px}
+.min,.add{background-color:white;text-align:center;line-height:22px}
+.min > img{position:relative;left:15px;top:-1px;height:29px}
+.add > img{position:relative;left:-11px;top:0px;}
+.text_box{width:40px !important;border:1px solid #ccc;text-align:center;
+		  font-size:12px;height:24px !important;border-left:0px solid #ccc;
+		  border-right:0px solid #ccc}
+.allprice{font-size:15px}
+.cart-foot{width:1200px;height:39px;background-color:#EAF8FF;
+		   border:1px solid #ccc;}
+.foot-1 > a{font-size:15px;color:#ccc;position:relative;left:2px;top:8px}
+.foot-1 > p{font-size:15px;color:#ccc;position:relative;left:900px;top:-13px}
+.p-sty{color:#666 !important;position:relative;left:1073px !important;top:-44px !important}
+.btn{width:170px;height:40px;background-color:#1b9d97;
+	 color:white;font-weight:bold;
+	 border-radius:0px;margin-left:15px}
+th{text-align:center;}
+td{text-align:center;vertical-align:middle;}

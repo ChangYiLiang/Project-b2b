@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.i9he.m2b.mapper.Shipping2bMapper">
+  <resultMap id="BaseResultMap" type="com.i9he.m2b.model.Shipping">
+    <!--
+    www.9he.com
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="express_company" jdbcType="VARCHAR" property="expressCompany" />
+    <result column="express_no" jdbcType="VARCHAR" property="expressNo" />
+    <result column="express_fee" jdbcType="DECIMAL" property="expressFee" />
+    <result column="state" jdbcType="BIT" property="state" />
+    <result column="send_date" jdbcType="TIMESTAMP" property="sendDate" />
+    <result column="sign_date" jdbcType="TIMESTAMP" property="signDate" />
+    <result column="created_date" jdbcType="TIMESTAMP" property="createdDate" />
+    <result column="updated_date" jdbcType="TIMESTAMP" property="updatedDate" />
+    <result column="origincode" property="origincode" />
+    <result column="destcode" property="destcode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+    www.9he.com
+    -->
+    id, order_id, express_company, express_no, express_fee, state, send_date, sign_date, 
+    created_date, updated_date,origincode,destcode
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--
+    www.9he.com
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from b2b_shipping
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--
+    www.9he.com
+    -->
+    delete from b2b_shipping
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.i9he.m2b.model.Shipping">
+    <!--
+    www.9he.com
+    -->
+    insert into b2b_shipping (id, order_id, express_company, 
+      express_no, express_fee, state, 
+      send_date, sign_date, created_date, 
+      updated_date,origincode,destcode)
+    values (#{id,jdbcType=INTEGER}, #{orderId,jdbcType=INTEGER}, #{expressCompany,jdbcType=VARCHAR}, 
+      #{expressNo,jdbcType=VARCHAR}, #{expressFee,jdbcType=DECIMAL}, #{state,jdbcType=BIT}, 
+      #{sendDate,jdbcType=TIMESTAMP}, #{signDate,jdbcType=TIMESTAMP}, #{createdDate,jdbcType=TIMESTAMP}, 
+      #{updatedDate,jdbcType=TIMESTAMP},#{origincode},#{destcode})
+  </insert>
+  <insert id="insertSelective" parameterType="com.i9he.m2b.model.Shipping">
+    <!--
+    www.9he.com
+    -->
+    insert into b2b_shipping
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="expressCompany != null">
+        express_company,
+      </if>
+      <if test="expressNo != null">
+        express_no,
+      </if>
+      <if test="expressFee != null">
+        express_fee,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="sendDate != null">
+        send_date,
+      </if>
+      <if test="signDate != null">
+        sign_date,
+      </if>
+      <if test="createdDate != null">
+        created_date,
+      </if>
+      <if test="updatedDate != null">
+        updated_date,
+      </if>
+      
+      <if test="origincode != null">
+        origincode,
+      </if>
+      <if test="destcode != null">
+        destcode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="expressCompany != null">
+        #{expressCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="expressNo != null">
+        #{expressNo,jdbcType=VARCHAR},
+      </if>
+      <if test="expressFee != null">
+        #{expressFee,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=BIT},
+      </if>
+      <if test="sendDate != null">
+        #{sendDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signDate != null">
+        #{signDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdDate != null">
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null">
+        #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      
+       <if test="origincode != null">
+        #{origincode},
+       </if>
+       <if test="destcode != null">
+        #{destcode},
+       </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.i9he.m2b.model.Shipping">
+    <!--
+    www.9he.com
+    -->
+    update b2b_shipping
+    <set>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="expressCompany != null">
+        express_company = #{expressCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="expressNo != null">
+        express_no = #{expressNo,jdbcType=VARCHAR},
+      </if>
+      <if test="expressFee != null">
+        express_fee = #{expressFee,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=BIT},
+      </if>
+      <if test="sendDate != null">
+        send_date = #{sendDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signDate != null">
+        sign_date = #{signDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdDate != null">
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null">
+        updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      
+      <if test="origincode != null">
+        origincode = #{origincode},
+      </if>
+      <if test="destcode != null">
+        destcode = #{destcode},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.i9he.m2b.model.Shipping">
+    <!--
+    www.9he.com
+    -->
+    update b2b_shipping
+    set order_id = #{orderId,jdbcType=INTEGER},
+      express_company = #{expressCompany,jdbcType=VARCHAR},
+      express_no = #{expressNo,jdbcType=VARCHAR},
+      express_fee = #{expressFee,jdbcType=DECIMAL},
+      state = #{state,jdbcType=BIT},
+      send_date = #{sendDate,jdbcType=TIMESTAMP},
+      sign_date = #{signDate,jdbcType=TIMESTAMP},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      origincode = #{origincode},
+      destcode = #{destcode}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectShippingByOrderId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--
+    www.9he.com
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from b2b_shipping
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </select>
+</mapper>

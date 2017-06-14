@@ -1,0 +1,101 @@
+body .layer-ext-jiuhe .layui-layer-title {
+
+}
+
+body .layui-ext-jiuhe .layui-layer-btn {
+
+}
+
+body .layui-ext-jiuhe .layui-layer-btn a {
+
+}
+
+.layer-ext-jiuhe .layui-layer-setwin {
+    right: 0;
+    top: 0;
+}
+.layer-ext-jiuhe .layui-layer-setwin .layui-layer-close1,
+.layer-ext-jiuhe .layui-layer-setwin .layui-layer-close2 {
+    background-image: url("close.png");
+    background-position: center center;
+    width: 24px;
+    height: 24px;
+	top: 8px;
+	right: 4px;
+}
+
+.layer-ext-jiuhe .layui-layer-content {
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+}
+
+.layui-layer-dialog.layer-ext-jiuhe .layui-layer-content .layui-layer-ico {
+    position: static;
+    display: block;
+    background-position: center center;
+    height: 78px;
+    width: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.layui-layer-dialog.layer-ext-jiuhe .layui-layer-content .layui-layer-icosuccess {
+    background-image: url("success.png");
+}
+
+.layui-layer-dialog.layer-ext-jiuhe .layui-layer-content .layui-layer-icoinfo {
+    background-image: url("info.png");
+}
+
+.layui-layer-dialog.layer-ext-jiuhe .layui-layer-content .layui-layer-icoquestion {
+    background-image: url("question.png");
+}
+
+.layui-layer-dialog.layer-ext-jiuhe .layui-layer-padding {
+    padding: 20px;
+}
+
+.layer-ext-jiuhe .layui-layer-btn {
+    text-align: center;
+}
+
+.layer-ext-jiuhe .layui-layer-btn a,
+.layer-ext-jiuhe .layui-layer-btn .layui-layer-btn0 ,
+.layer-ext-jiuhe .layui-layer-btn .layui-layer-btn1 ,
+.layer-ext-jiuhe .layui-layer-btn .layui-layer-btn2 {
+	border-radius: 0;
+}
+
+
+.layer-ext-jiuhe .layui-layer-btn .layui-layer-btn0 {
+	background-color: #1b9d97;
+	border-color: #1b9d97;
+}
+
+body .layui-ext-jiuhe .layui-layer-icosuccess {
+
+}
+
+.jh-login-panel {
+    background-image: url("login-info.png");
+    background-repeat: no-repeat;
+    background-position: 96px 64px;
+    text-align: left !important;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding-left: 226px;
+    padding-top: 88px;
+}
+
+.jh-login-panel h3 {
+	font-size:24px;
+}
+
+.jh-login-panel p {
+	font-size:14px;
+}
+

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.i9he.m2b.mapper.UserCensusMapper">
+  
+  <resultMap id="UserNumberResult" type="com.i9he.m2b.model.UserNumber">
+  		<result column="create_dateStr"  property="createDateStr" />
+        <result column="userSum"  property="userSum" />
+        <result column="userCount"  property="userCount" />
+  </resultMap>
+  
+  <resultMap id="UserRegisterNumberResult" type="com.i9he.m2b.model.UserRegisterNumber">
+  		<result column="nowDay"  property="nowDay" />
+        <result column="nowMonth"  property="nowMonth" />
+        <result column="nowCurdate"  property="nowCurdate" />
+  </resultMap>
+  
+   <resultMap id="UserToGrAndQyResult" type="com.i9he.m2b.model.UserToGrAndQy">
+  		<result column="qy"  property="qy" />
+        <result column="gr"  property="gr" />
+  </resultMap>
+  
+  <select id="getUserNumber" resultMap="UserNumberResult">
+  		SET @add_sal=0;
+		SELECT create_dateStr,@add_sal :=@add_sal+f.userCount AS userSum FROM 
+		(SELECT DATE_FORMAT(`created_date`,'%Y年%m月') AS create_dateStr,COUNT(*) AS userCount  FROM `usr_user` GROUP BY DATE_FORMAT(`created_date`,'%Y年%m月'))
+		f  ORDER BY  create_dateStr DESC,userSum DESC  LIMIT 0,10		  
+  </select>
+  
+  <select id="getUserRegisterNumber" resultMap="UserRegisterNumberResult">
+  		SELECT 
+			(SELECT COUNT(1) FROM usr_user WHERE TO_DAYS(created_date) = TO_DAYS(NOW())) AS nowDay,
+			(SELECT COUNT(1) FROM `usr_user` WHERE MONTH(`created_date`) = MONTH(CURDATE()) AND YEAR(`created_date`) = YEAR(CURDATE())) AS nowMonth,
+			(SELECT COUNT(1) FROM `usr_user`  WHERE QUARTER(`created_date`) = QUARTER( CURDATE( )) AND YEAR(`created_date`) = YEAR(CURDATE())) AS nowCurdate
+		FROM `usr_user` LIMIT 0,1
+  </select>
+  
+  <select id="getUserToGrAndQy" resultMap="UserToGrAndQyResult">
+  		SELECT   
+			(SELECT COUNT(1) FROM usr_user WHERE `merchant_no`='') AS gr,
+			(SELECT COUNT(1) FROM usr_user WHERE `merchant_no`<![CDATA[  <>  ]]>'') AS qy
+		FROM `usr_user` LIMIT 0,1
+  </select>
+</mapper>

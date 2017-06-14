@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.i9he.m2b.mapper.GoodsDetail2bMapper">
+  <resultMap id="BaseResultMap" type="com.i9he.m2b.model.GoodsDetail">
+    <!--
+    www.9he.com
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
+    <result column="item_id" jdbcType="INTEGER" property="itemId" />
+    <result column="month_pay" jdbcType="DECIMAL" property="monthPay" />
+    <result column="quart_pay" jdbcType="DECIMAL" property="quartPay" />
+    <result column="hy_pay" jdbcType="DECIMAL" property="hyPay" />
+    <result column="year_pay" jdbcType="DECIMAL" property="yearPay" />
+    <result column="ty_pay" jdbcType="DECIMAL" property="tyPay" />
+    <result column="mrenew_pay" jdbcType="DECIMAL" property="mrenewPay" />
+    <result column="qrenew_pay" jdbcType="DECIMAL" property="qrenewPay" />
+    <result column="hrenew_pay" jdbcType="DECIMAL" property="hrenewPay" />
+    <result column="yrenew_pay" jdbcType="DECIMAL" property="yrenewPay" />
+    <result column="trenew_pay" jdbcType="DECIMAL" property="trenewPay" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+    www.9he.com
+    -->
+    id, goods_id, item_id, month_pay, quart_pay, hy_pay, year_pay, ty_pay, mrenew_pay, 
+    qrenew_pay, hrenew_pay, yrenew_pay, trenew_pay
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--
+    www.9he.com
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from b2b_goods_detail
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--
+    www.9he.com
+    -->
+    delete from b2b_goods_detail
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.i9he.m2b.model.GoodsDetail">
+    <!--
+    www.9he.com
+    -->
+    insert into b2b_goods_detail (id, goods_id, item_id, 
+      month_pay, quart_pay, hy_pay, 
+      year_pay, ty_pay, mrenew_pay, 
+      qrenew_pay, hrenew_pay, yrenew_pay, 
+      trenew_pay)
+    values (#{id,jdbcType=INTEGER}, #{goodsId,jdbcType=INTEGER}, #{itemId,jdbcType=INTEGER}, 
+      #{monthPay,jdbcType=DECIMAL}, #{quartPay,jdbcType=DECIMAL}, #{hyPay,jdbcType=DECIMAL}, 
+      #{yearPay,jdbcType=DECIMAL}, #{tyPay,jdbcType=DECIMAL}, #{mrenewPay,jdbcType=DECIMAL}, 
+      #{qrenewPay,jdbcType=DECIMAL}, #{hrenewPay,jdbcType=DECIMAL}, #{yrenewPay,jdbcType=DECIMAL}, 
+      #{trenewPay,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.i9he.m2b.model.GoodsDetail">
+    <!--
+    www.9he.com
+    -->
+    insert into b2b_goods_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="goodsId != null">
+        goods_id,
+      </if>
+      <if test="itemId != null">
+        item_id,
+      </if>
+      <if test="monthPay != null">
+        month_pay,
+      </if>
+      <if test="quartPay != null">
+        quart_pay,
+      </if>
+      <if test="hyPay != null">
+        hy_pay,
+      </if>
+      <if test="yearPay != null">
+        year_pay,
+      </if>
+      <if test="tyPay != null">
+        ty_pay,
+      </if>
+      <if test="mrenewPay != null">
+        mrenew_pay,
+      </if>
+      <if test="qrenewPay != null">
+        qrenew_pay,
+      </if>
+      <if test="hrenewPay != null">
+        hrenew_pay,
+      </if>
+      <if test="yrenewPay != null">
+        yrenew_pay,
+      </if>
+      <if test="trenewPay != null">
+        trenew_pay,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="goodsId != null">
+        #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="itemId != null">
+        #{itemId,jdbcType=INTEGER},
+      </if>
+      <if test="monthPay != null">
+        #{monthPay,jdbcType=DECIMAL},
+      </if>
+      <if test="quartPay != null">
+        #{quartPay,jdbcType=DECIMAL},
+      </if>
+      <if test="hyPay != null">
+        #{hyPay,jdbcType=DECIMAL},
+      </if>
+      <if test="yearPay != null">
+        #{yearPay,jdbcType=DECIMAL},
+      </if>
+      <if test="tyPay != null">
+        #{tyPay,jdbcType=DECIMAL},
+      </if>
+      <if test="mrenewPay != null">
+        #{mrenewPay,jdbcType=DECIMAL},
+      </if>
+      <if test="qrenewPay != null">
+        #{qrenewPay,jdbcType=DECIMAL},
+      </if>
+      <if test="hrenewPay != null">
+        #{hrenewPay,jdbcType=DECIMAL},
+      </if>
+      <if test="yrenewPay != null">
+        #{yrenewPay,jdbcType=DECIMAL},
+      </if>
+      <if test="trenewPay != null">
+        #{trenewPay,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.i9he.m2b.model.GoodsDetail">
+    <!--
+    www.9he.com
+    -->
+    update b2b_goods_detail
+    <set>
+      <if test="goodsId != null">
+        goods_id = #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="itemId != null">
+        item_id = #{itemId,jdbcType=INTEGER},
+      </if>
+      <if test="monthPay != null">
+        month_pay = #{monthPay,jdbcType=DECIMAL},
+      </if>
+      <if test="quartPay != null">
+        quart_pay = #{quartPay,jdbcType=DECIMAL},
+      </if>
+      <if test="hyPay != null">
+        hy_pay = #{hyPay,jdbcType=DECIMAL},
+      </if>
+      <if test="yearPay != null">
+        year_pay = #{yearPay,jdbcType=DECIMAL},
+      </if>
+      <if test="tyPay != null">
+        ty_pay = #{tyPay,jdbcType=DECIMAL},
+      </if>
+      <if test="mrenewPay != null">
+        mrenew_pay = #{mrenewPay,jdbcType=DECIMAL},
+      </if>
+      <if test="qrenewPay != null">
+        qrenew_pay = #{qrenewPay,jdbcType=DECIMAL},
+      </if>
+      <if test="hrenewPay != null">
+        hrenew_pay = #{hrenewPay,jdbcType=DECIMAL},
+      </if>
+      <if test="yrenewPay != null">
+        yrenew_pay = #{yrenewPay,jdbcType=DECIMAL},
+      </if>
+      <if test="trenewPay != null">
+        trenew_pay = #{trenewPay,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.i9he.m2b.model.GoodsDetail">
+    <!--
+    www.9he.com
+    -->
+    update b2b_goods_detail
+    set goods_id = #{goodsId,jdbcType=INTEGER},
+      item_id = #{itemId,jdbcType=INTEGER},
+      month_pay = #{monthPay,jdbcType=DECIMAL},
+      quart_pay = #{quartPay,jdbcType=DECIMAL},
+      hy_pay = #{hyPay,jdbcType=DECIMAL},
+      year_pay = #{yearPay,jdbcType=DECIMAL},
+      ty_pay = #{tyPay,jdbcType=DECIMAL},
+      mrenew_pay = #{mrenewPay,jdbcType=DECIMAL},
+      qrenew_pay = #{qrenewPay,jdbcType=DECIMAL},
+      hrenew_pay = #{hrenewPay,jdbcType=DECIMAL},
+      yrenew_pay = #{yrenewPay,jdbcType=DECIMAL},
+      trenew_pay = #{trenewPay,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="getpriceByItemId" resultType="java.math.BigDecimal">
+  	select 
+  	<if test="orderCycle == 4">
+  		month_pay
+  	</if>
+  	<if test="orderCycle == 5">
+  		quart_pay
+  	</if>
+  	<if test="orderCycle == 6">
+  		hy_pay
+  	</if>
+  	<if test="orderCycle == 7">
+  		year_pay
+  	</if>
+  	<if test="orderCycle == 8">
+  		ty_pay
+  	</if>
+  	from b2b_goods_detail
+  	where item_id = #{itemId,jdbcType=INTEGER} and goods_id = #{goodsId,jdbcType=INTEGER}
+  </select>
+  <select id="getpriceByGoodsId" resultType="java.math.BigDecimal">
+  	select 
+  	<if test="orderCycle == 4">
+  		month_pay
+  	</if>
+  	<if test="orderCycle == 5">
+  		quart_pay
+  	</if>
+  	<if test="orderCycle == 6">
+  		hy_pay
+  	</if>
+  	<if test="orderCycle == 7">
+  		year_pay
+  	</if>
+  	<if test="orderCycle == 8">
+  		ty_pay
+  	</if>
+  	from b2b_goods_detail
+  	where goods_id = #{goodsId,jdbcType=INTEGER} and item_id = 0
+  </select>
+  <select id="selectPrice" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--
+    www.9he.com
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from b2b_goods_detail
+    where goods_id = #{goodsId,jdbcType=INTEGER} and item_id = #{itemId,jdbcType=INTEGER}
+  </select>
+  
+  <update id="updatePrice" parameterType="com.i9he.m2b.model.GoodsDetail">
+    <!--
+    www.9he.com
+    -->
+    update b2b_goods_detail
+    set month_pay = #{monthPay,jdbcType=DECIMAL},
+        quart_pay = #{quartPay,jdbcType=DECIMAL},
+        hy_pay = #{hyPay,jdbcType=DECIMAL},
+        year_pay = #{yearPay,jdbcType=DECIMAL},
+        ty_pay = #{tyPay,jdbcType=DECIMAL},
+        mrenew_pay = #{mrenewPay,jdbcType=DECIMAL},
+        qrenew_pay = #{qrenewPay,jdbcType=DECIMAL},
+        hrenew_pay = #{hrenewPay,jdbcType=DECIMAL},
+        yrenew_pay = #{yrenewPay,jdbcType=DECIMAL},
+        trenew_pay = #{trenewPay,jdbcType=DECIMAL}
+        where goods_id = #{goodsId,jdbcType=INTEGER} and
+        item_id = #{itemId,jdbcType=INTEGER}
+  </update>
+  
+</mapper>

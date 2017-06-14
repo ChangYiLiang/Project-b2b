@@ -1,0 +1,60 @@
+.goods img{
+	height:264px;
+	width:264px;
+	border-bottom:1px solid #1B9D97;
+}
+.price{
+	margin-left:75px;
+	font-size:13px;
+}
+#reduce{
+    color:#1B9D97;
+}
+.add{
+	margin-left:45px;
+	width:180px;
+	margin-bottom: 5px;
+}
+.concernGoods{
+	width:281px;
+	margin-bottom:20px;
+	margin-left:18px;
+}
+.closeGoods{
+	text-decoration:none;
+	position: relative;
+    left: 252px;
+    top: -6px;
+    display:none;
+   
+     
+}
+.row{
+	margin-left:-30px;	
+}
+.goods{
+	border:1px solid #1B9D97;
+}
+.goodsName{
+	position: relative;
+    
+}
+.remind{
+	position: relative;
+	left:225px;
+	top:220px;
+}
+.red{
+	color:#1B9D97;
+}
+.border{
+	border:1px solid #1B9D97
+}
+.img11{
+	dispaly:block;
+	border:none;
+}
+.col-md-3{
+	padding-left:10px;
+	padding-right:5px;
+}

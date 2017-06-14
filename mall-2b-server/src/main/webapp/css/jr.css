@@ -1,0 +1,136 @@
+.jr_center{
+	width: 1200px;
+	margin:0 auto;
+}
+/*介绍*/
+.jr_jieshao{
+	padding:100px 0;
+	
+}
+.jr_jieshao h2{
+	font-size: 48px;color: #1b979d;text-align: center;
+}
+.jr_jieshao p{
+	font-size: 18px;color:#333;text-align: center;
+}
+/*优势*/
+.jr_jieshao p a{
+	font-size: 18px;
+	color:#ff263e;
+}
+.jr_jieshao p a:hover{
+	color:#1b979d;
+}
+/*
+.jr_jieshao p a{
+	font-size: 20px;
+    background-color: #fc6703;
+    color: #fff;
+    border-radius: 20px;
+    padding: 0px 25px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;	
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;	
+}
+.jr_jieshao p a img{
+    vertical-align: middle;
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+    margin-top: -3px;
+}
+*/
+.jr_color{
+	background: #f7f7f7;
+}
+.jr_sida span{
+	display: block;
+	font-size: 24px;
+	color:#1b979d;
+	text-align: center;
+}
+.jr_sida .jr_sp1{
+	padding:115px 0 70px;
+}
+.jr_sida .jr_sp2{
+	font-size: 14px;
+}
+/*流程*/
+.jr_liucheng{
+	padding:72px 0 0 100px;
+}
+.jr_liucheng li h3{
+	font-size: 18px;
+	color:#333;
+}
+.jr_liucheng li p{
+	font-size: 14px;
+	color:#999;
+}
+.jr_bc{
+	font-size: 18px;
+	color:#333;
+	text-align: center;
+}
+.jr_zhuyi{
+	padding:0 0 0 100px;
+}
+.jr_zhuyi dt{
+	font-size: 24px;
+	color: #202020;
+	line-height: 48px;
+}
+.jr_zhuyi dd{
+	font-size: 16px;
+	color:#202020;
+	line-height: 32px;
+}
+.jr_zhuyi dd ul{
+	padding:0 0 0 20px;
+	
+}
+.jr_zhuyi dd a{
+	color:#1b979d;
+	font-size: 16px;
+	text-decoration: underline;
+}
+.jr_zhuyi dd ul li{
+	line-height: 28px;
+	font-size: 14px;
+}
+/*条件*/
+.jr_tit{
+	float:left;
+	font-size: 48px;
+	color:#1b979d;
+	width: 600px;
+	text-align: center;
+	padding: 50px 0 0 0; 
+}
+.jr_con{
+	float: left;
+}
+.jr_con p{
+	text-align: left;
+	font-size: 24px;
+	color:#333;
+	line-height: 48px;
+}
+.jr_con button{
+	background: #1b979d;
+	color:#fff;
+	padding:0 36px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	cursor: pointer;
+}
+.jr_con button:hover{
+	background: #27b6af;
+
+}

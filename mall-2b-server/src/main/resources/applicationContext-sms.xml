@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-4.0.xsd"
+	default-lazy-init="true ">
+	
+	<!-- 手机注册验证码短信(SMS_34750074 ) -->
+	<!-- 手机登录平台验证码(SMS_34745228 ) -->
+	<!-- 手机验证(SMS_35060606 ) -->
+	<!-- 手机验证 -->
+	<bean id="mobileValidateSmsSender" class="com.i9he.m2b.controller.sms.taobao.ValidateCodeSmsSender">
+		<property name="appKey" value="${sms.taobao.appKey}" />
+		<property name="url" value="${sms.taobao.url}" />
+		<property name="secret" value="${sms.taobao.secret}" />
+		<property name="smsFreeSignName" value="${sms.taobao.smsFreeSignName}" />
+		<property name="smsTemplateCode" value="${sms.taobao.smsTemplateCode.mobileValidate}" />
+		
+	</bean>
+	
+	<!-- 手机登录验证码 -->
+	<bean id="mobileLoginSmsSender" class="com.i9he.m2b.controller.sms.taobao.ValidateCodeSmsSender">
+		<property name="appKey" value="${sms.taobao.appKey}" />
+		<property name="url" value="${sms.taobao.url}" />
+		<property name="secret" value="${sms.taobao.secret}" />
+		<property name="smsFreeSignName" value="${sms.taobao.smsFreeSignName}" />
+		<property name="smsTemplateCode" value="${sms.taobao.smsTemplateCode.mobileLogin}" />
+	</bean>
+	
+	<!-- 手机注册验证码 -->
+	<bean id="mobileRegisterSmsSender" class="com.i9he.m2b.controller.sms.taobao.ValidateCodeSmsSender">
+		<property name="appKey" value="${sms.taobao.appKey}" />
+		<property name="url" value="${sms.taobao.url}" />
+		<property name="secret" value="${sms.taobao.secret}" />
+		<property name="smsFreeSignName" value="${sms.taobao.smsFreeSignName}" />
+		<property name="smsTemplateCode" value="${sms.taobao.smsTemplateCode.mobileRegister}" />
+	</bean>
+	
+</beans>

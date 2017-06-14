@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.i9he.m2b.mapper.Itemcategory2bMapper">
+  <resultMap id="BaseResultMap" type="com.i9he.m2b.model.Itemcategory">
+    <!--
+    www.9he.com
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="type_name" jdbcType="VARCHAR" property="typeName" />
+    <result column="if_idc" jdbcType="INTEGER" property="ifIdc" />
+    <result column="type_attr" jdbcType="VARCHAR" property="typeAttr" />
+    <result column="is_show" jdbcType="INTEGER" property="isShow" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+    www.9he.com
+    -->
+    id, type_name, if_idc, type_attr, is_show, sort
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--
+    www.9he.com
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from b2b_itemcategory
+    where id = #{id,jdbcType=INTEGER} and is_show = 1
+  </select>
+  
+  <select id="selectByPrimaryKey2" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--
+    www.9he.com
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from b2b_itemcategory
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.i9he.m2b.model.Itemcategory">
+    <!--
+    www.9he.com
+    -->
+    insert into b2b_itemcategory (id, type_name, if_idc, type_attr, is_show, sort
+      )
+    values (#{id,jdbcType=INTEGER}, #{typeName,jdbcType=VARCHAR}, 
+            #{ifIdc,jdbcType=INTEGER}, #{typeAttr,jdbcType=VARCHAR},
+            #{isShow,jdbcType=INTEGER},#{sort,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.i9he.m2b.model.Itemcategory">
+    <!--
+    www.9he.com
+    -->
+    insert into b2b_itemcategory
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="typeName != null">
+        type_name,
+      </if>
+      <if test="ifIdc != null">
+        if_idc,
+      </if>
+      <if test="typeAttr != null">
+        type_attr,
+      </if>
+      <if test="isShow != null">
+        is_show,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="typeName != null">
+        #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="ifIdc != null">
+        #{ifIdc,jdbcType=INTEGER},
+      </if>
+      <if test="typeAttr != null">
+        #{typeAttr,jdbcType=VARCHAR},
+      </if>
+      <if test="isShow != null">
+        #{isShow,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.i9he.m2b.model.Itemcategory">
+    <!--
+    www.9he.com
+    -->
+    update b2b_itemcategory
+    <set>
+      <if test="typeName != null">
+        type_name = #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="ifIdc != null">
+        if_idc = #{ifIdc,jdbcType=INTEGER},
+      </if>
+      <if test="typeAttr != null">
+        type_attr = #{typeAttr,jdbcType=VARCHAR},
+      </if>
+      <if test="isShow != null">
+        is_show = #{isShow,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.i9he.m2b.model.Itemcategory">
+    <!--
+    www.9he.com
+    -->
+    update b2b_itemcategory
+    set type_name = #{typeName,jdbcType=VARCHAR},
+        if_idc = #{ifIdc,jdbcType=INTEGER},
+        type_attr = #{typeAttr,jdbcType=VARCHAR},
+        is_show = #{isShow,jdbcType=INTEGER},
+        sort = #{sort,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getallitemtype" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from b2b_itemcategory where is_show = 1
+  </select>
+  
+  <sql id="getItemcategoryCondition">
+  	where 1=1
+  	<!-- 状态查询 -->
+  	<if test="ifIdc != null">
+  		and if_idc = #{ifIdc}
+  	</if>
+  	<trim prefix="and (" suffix=")" prefixOverrides="and|or">
+	  	<if test="keyword != null and keyword != ''">
+			and CONCAT_WS(',',type_attr) like CONCAT('%', #{keyword}, '%')
+		</if>
+	</trim>
+</sql>
+
+<select id="getItemcategory2" parameterType="com.i9he.m2b.model.search.ItemcategorySearchModel" resultMap="BaseResultMap">
+    <!--
+    www.9he.com
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from b2b_itemcategory
+    <include refid="getItemcategoryCondition" />
+    <!--
+    where 1=1 and item_type = #{itemType}
+    -->
+    order by id desc
+    limit #{startPage}, #{pageSize}
+</select>
+ 
+<select id="getItemcategoryCount" parameterType="com.i9he.m2b.model.search.ItemcategorySearchModel" resultType="int">
+  	select count(1)
+  	from b2b_itemcategory
+  	<include refid="getItemcategoryCondition" />
+  	<!--
+  	where 1=1 and item_type = #{itemType}
+  	--> 
+</select>
+  
+</mapper>

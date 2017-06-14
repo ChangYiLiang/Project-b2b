@@ -1,0 +1,65 @@
+
+ul,li,dl,dd{ margin:0; padding:0; list-style:none;}
+*{ font-size:12px; color:#666; font-family:'Î¢ÈíÑÅºÚ';border:none;}
+.big{width:1200px;height:auto;margin:0px auto;}
+.big-left{width:650px;height:475px;float:left;margin-top:-20px}
+.tru-diqu{font-size:12px;margin-right:37px;position:relative;top:-22px;left:9px}
+.left-p{float:left;width:70px;text-align:right;height:60px;line-height:30px;font-size:12px;margin-right:20px}
+.ul-left{width:700px;height:auto;}
+.ul-left li{width:780px;height:35px;float:left;margin-bottom:10px;margin-top:12px}
+.ul-left0,.ul-left1,.ul-left2,.ul-left3,
+.ul-left4,.ul-left5,.ul-left6,.ul-left7,.ul-left8,.ul-win,.ul-time,.ul-num{height:60px;text-align:center}
+.ul-left0 li,.ul-left1 li,
+.ul-left2 li,.ul-left3 li,
+.ul-left4 li,.ul-left5 li,
+.ul-left6 li,.ul-left7 li,.ul-left8 li,.ul-win li,.ul-time li,.ul-num li{width:auto;float:left;}
+.ul-left0 li button,.ul-left1 li button,
+.ul-left2 li button,.ul-left3 li button,
+.ul-left4 li button,.ul-left5 li button,
+.ul-left6 li button,.ul-left7 li button,.ul-left8 li button,.ul-time li button,.ul-num li button,.ul-ip li button{width:100px;height:30px;background-color:white;border:1px solid #ccc;margin-left:5px}
+.ul-left0 li select,.ul-left0 li option,
+.ul-left1 li select,.ul-left1 li option,
+.ul-left2 li select,.ul-left2 li option,
+.ul-left3 li select,.ul-left3 li option,
+.ul-left4 li select,.ul-left4 li option,
+.ul-left5 li select,.ul-left5 li option,
+.ul-left6 li select,.ul-left6 li option,
+.ul-left7 li select,.ul-left7 li option,
+.ul-left8 li select,.ul-left8 li option,.ul-win li select,.ul-win option{background-image: linear-gradient(to bottom,#337ab7 0,#265a88 100%);color:white;font-size:14px;}
+.ul-left0 li option,.ul-left6 li option,.ul-win li option{color:black;}
+.other-btn li button{width:50px}
+.buy-num{float:left;margin-top:-10px}
+.other-span{color:white;font-weight:bold;font-size:12px}
+
+.ul-ip {position:relative;left:5px;top:13px}
+.sty-input{width:60px;height:30px;position:relative;top:-1px;left:2px;text-align:center;display:inline-block}
+
+.sty-ip {font-size:14px;color:white}
+
+.big-right{width:300px;height:500px;float:left;margin-left:50px}
+.right-top{width:300px;float:left;background:linear-gradient(45deg, #10559e 5%, #1e88e5 65%, #40BAF5 98%);height:35px;margin-top:-22px}
+.right-top span{color:white;font-size:14px;position:relative;top:10px;left:5px}
+.right-body{width:300px;height:auto;float:left;}
+.other-li{border-top-left-radius:0px;border-top-right-radius:0px;}
+.price-sty{color:#E31939;}
+.right-foot{width:300px;float:left;;height:35px;margin-top:-20px}
+.other-submit{background:linear-gradient(45deg, #10559e 5%, #1e88e5 65%, #40BAF5 98%);width:300px;}
+
+.buy-num, .ul-left{
+    clear:left;
+}
+.buy-num{width:100%}
+.btn-default{border-radius:0px;}
+/*
+.btn-success22{background-image: linear-gradient(to bottom,#26d7b3 0,#1b9d97 100%);border:1px solid #26d7b3;color:white;}
+*/
+.btn-success22{background:#1b9d97 !important;border:1px solid #1b9d97 !important;color:white}
+.btn-disabled{background:#ccc !important}
+.ul-win li select,.ul-win option{background-image: linear-gradient(to bottom,#26d7b3 0,#26d7b3 100%);border:1px solid #26d7b3;color:white}
+.right-top,.other-submit{background:#26d7b3;color:white}
+.list-group li{margin-bottom:5px}
+
+
+
+
+

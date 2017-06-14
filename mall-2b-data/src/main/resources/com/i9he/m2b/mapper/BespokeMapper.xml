@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.i9he.m2b.mapper.BespokeMapper">
+  <resultMap id="BaseResultMap" type="com.i9he.m2b.model.Bespoke">
+    <!--
+    www.9he.com
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="pokedesc" jdbcType="VARCHAR" property="pokedesc" />
+    <result column="person" jdbcType="VARCHAR" property="person" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="bespoke_date" jdbcType="VARCHAR" property="bespokeDate" />
+    <result column="submit_date" jdbcType="TIMESTAMP" property="submitDate" />
+    <result column="submit_flag" jdbcType="INTEGER" property="submitFlag" />
+    <result column="end_date" jdbcType="VARCHAR" property="endDate" />
+    <result column="tecperson" jdbcType="VARCHAR" property="tecperson" />
+    <result column="pay" jdbcType="DECIMAL" property="pay" />
+    <result column="userid" jdbcType="INTEGER" property="userid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+    www.9he.com
+    -->
+    id, title, pokedesc, person, mobile, bespoke_date, submit_date, submit_flag, 
+    end_date, tecperson, pay, userid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--
+    www.9he.com
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from b2b_bespoke
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="getalllog" resultMap="BaseResultMap">
+    <!--
+    www.9he.com
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from b2b_bespoke
+  </select>
+  
+  <insert id="insertSelective" parameterType="com.i9he.m2b.model.Bespoke">
+    <!--
+    www.9he.com
+    -->
+    insert into b2b_bespoke
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="pokedesc != null">
+        pokedesc,
+      </if>
+      <if test="person != null">
+        person,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="bespokeDate != null">
+        bespoke_date,
+      </if>
+      <if test="submitDate != null">
+        submit_date,
+      </if>
+      <if test="submitFlag != null">
+        submit_flag,
+      </if>
+      <if test="endDate != null">
+        end_date,
+      </if>
+      <if test="tecperson != null">
+        tecperson,
+      </if>
+      <if test="pay != null">
+        pay,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="pokedesc != null">
+        #{pokedesc,jdbcType=VARCHAR},
+      </if>
+      <if test="person != null">
+        #{person,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="bespokeDate != null">
+        #{bespokeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="submitDate != null">
+        #{submitDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="submitFlag != null">
+        #{submitFlag,jdbcType=INTEGER},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="tecperson != null">
+        #{tecperson,jdbcType=VARCHAR},
+      </if>
+      <if test="pay != null">
+        #{pay,jdbcType=DECIMAL},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.i9he.m2b.model.Bespoke">
+    <!--
+    www.9he.com
+    -->
+    update b2b_bespoke
+    <set>
+      <if test="title != null">
+       title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="pokedesc != null">
+       pokedesc = #{pokedesc,jdbcType=VARCHAR},
+      </if>
+      <if test="person != null">
+       person = #{person,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="bespokeDate != null">
+       bespoke_date = #{bespokeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="submitDate != null">
+       submit_date = #{submitDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="submitFlag != null">
+       submit_flag = #{submitFlag,jdbcType=INTEGER},
+      </if>
+      <if test="endDate != null">
+       end_date = #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="tecperson != null">
+        tecperson = #{tecperson,jdbcType=VARCHAR},
+      </if>
+      <if test="pay != null">
+        pay = #{pay,jdbcType=DECIMAL},
+      </if>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getlogbyuser" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--
+    www.9he.com
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from b2b_bespoke
+    where userid = #{userid,jdbcType=INTEGER}
+  </select>
+  
+</mapper>

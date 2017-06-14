@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.i9he.m2b.mapper.Balances2bMapper">
+  <resultMap id="BaseResultMap" type="com.i9he.m2b.model.Balances">
+    <!--
+    www.9he.com
+    -->
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="fest_balance" jdbcType="INTEGER" property="festBalance" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+    www.9he.com
+    -->
+    user_id, fest_balance
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--
+    www.9he.com
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from b2b_balances
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--
+    www.9he.com
+    -->
+    delete from b2b_balances
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.i9he.m2b.model.Shipping">
+    <!--
+    www.9he.com
+    -->
+    insert into b2b_balances (user_id, fest_balance)
+    values (#{userId,jdbcType=INTEGER}, #{festBalance,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.i9he.m2b.model.Balances">
+    <!--
+    www.9he.com
+    -->
+    insert into b2b_balances
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="festBalance != null">
+        fest_balance,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="festBalance != null">
+        #{festBalance,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.i9he.m2b.model.Balances">
+    <!--
+    www.9he.com
+    -->
+    update b2b_balances
+    <set>
+      <if test="festBalance != null">
+        fest_balance = #{festBalance,jdbcType=INTEGER},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.i9he.m2b.model.Balances">
+    <!--
+    www.9he.com
+    -->
+    update b2b_balances
+    set fest_balance = #{festBalance,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>

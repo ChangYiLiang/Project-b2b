@@ -1,0 +1,91 @@
+﻿.comment-hr{
+	margin-left: 14px;
+	margin-right: 15px;
+}
+.comment-btn{
+	border:1px solid #999;
+	width: 860px;
+	margin-left: 15px;
+	min-height: 80px;
+	border-top: 0px none;
+}
+.comment-submit-btn{
+	width:150px;
+	margin-left: 355px;
+	margin-top: 22px;
+}
+.commmont-div2{
+	text-align: center;
+	margin-top:50px;
+}
+.overallComment div{
+	width:96px;
+	height:32px;
+	border:1px solid #999; 
+	float: left;
+	line-height: 32px;
+	text-align: center;
+	margin-right:20px;
+	cursor: pointer;
+}
+.overallComment-title{
+	width:92px;
+	height:32px;
+	line-height: 32px;
+	float: left;
+}
+.comment-satisfied img{
+	cursor: pointer;
+}
+.content{
+	float: left;
+}
+.content textarea{
+	margin-left:27px;
+}
+.uploadimg{
+	margin-left: 110px;
+}
+.uploadimg img{
+	wigth:50px;height:50px;
+}
+.commmont-order-div2{
+	border: 1px solid #999;
+	border-bottom: 0px;
+}
+.commmont-div2 img{
+	width:110px;
+	height:80px;
+}
+.showPhoto div{
+	float: left;
+}
+.frimary-color{
+	color:#1B9D97;
+}
+.commmontList-div2{
+	text-align: center;
+	margin-top:40px;
+}
+.commmontList-div2 img{
+	width:110px;
+	height:80px;
+}
+.commmontList-div3{
+	min-height: 230px;
+}
+.commentList-imgbox{
+	margin-left: 16px;
+}
+.commentList-imgbox img{
+	margin-right: 7px;
+	height:50px;width:50px;
+}
+.add-bonus{
+	margin-left:45px;
+}
+.ppt {
+    position: relative;
+	left: -52px;
+	top: 13px;
+}

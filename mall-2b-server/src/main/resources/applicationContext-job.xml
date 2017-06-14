@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:jee="http://www.springframework.org/schema/jee"
+    xmlns:tx="http://www.springframework.org/schema/tx" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:task="http://www.springframework.org/schema/task" 
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:cache="http://www.springframework.org/schema/cache"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
+    http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+    http://www.springframework.org/schema/jee  http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+    http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-4.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+    http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd"
+    default-lazy-init="true">
+	<!-- 加载定时任务 -->
+
+	<bean class="com.i9he.quartz.RemindJob" lazy-init="false"/>
+	<bean class="com.i9he.quartz.InitPasswordCountJob" lazy-init="false"/>
+	
+	<task:annotation-driven/>
+	
+	<bean class="com.i9he.quartz.CommentTimeoutJob" id="commentTimeoutJob"/>
+    
+   <task:scheduled-tasks>
+       <task:scheduled  cron="${cron.comment.timeout}" ref="commentTimeoutJob" method="scanComments"/>
+   </task:scheduled-tasks>
+    
+</beans>

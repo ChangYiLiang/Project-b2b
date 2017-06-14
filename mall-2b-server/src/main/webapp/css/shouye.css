@@ -1,0 +1,138 @@
+.shouyedaohao{width:1200px;margin: 36px auto 0;}
+.quanbugood,.daohang_con{float:left;}
+.quanbugood{width: 140px;height: 36px;text-align: center;line-height:36px;background:#1b9d97;color:#fff;position:relative;font-size:16px;}
+.daohang_con{margin:0 0 0 100px;padding:10px 0 0 0;}
+.daohang_con ul li{float:left;margin:0 46px 0 0;height:26px;}
+.daohang_con a{font-size:16px;color:#333;}
+.daohang_con a:hover{color:#1b9d97;}
+.fon_14{font-size: 14px;color:#fff;background:#1b9d97;display:inline-block;width:180px;height:42px;text-align: left;padding:0 0 0 40px;line-height:42px;border-top:1px solid #1b9d97;position:relative;}
+.fon_14g{font-size:14px;color:#fff;display:inline-block;}
+.fon_14g.current{color:#1b9d97!important;}
+.fon_14:hover{color:#1b9d97;background:#fff;}
+.xiangqing1{position:absolute;left:220px;top:-1px;width:980px;background:#fff;padding:18px 0 20px 32px;
+    display:none; border: 1px solid #1b9d97;border-left: none;
+}
+.xiangqing1 dt,.xiangqing1 dd{float:left;}
+.xiangqing1 dt{font-size:14px;color:#666;font-weight: bold;line-height:40px;height:40px;text-align:right;width:90px;}
+.xiangqing1 dd a{font-size:12px;color:#666;margin:0 10px 0 0;}
+.xiangqing1 dd a:hover{color:#1b979d;}
+.xiangqing1 dd{width: 480px;;border-bottom:1px dashed #e9e7e7;margin:0 0 0 15px;}
+.caigou_con1{float:left;}
+.xiangqing_banner{float:left;width:220px;height:114px;padding:50px;}
+.dakuang{display:none;position:relative;z-index:10;border-left:1px solid #1b979d;border-bottom:1px soikd #1b979d;}
+.dakuang2{display:inline-block;}
+.jiaohuanji{color:#1b9d97;font-size:16px;border-bottom:1px solid #ccc;font-weight: bold;}
+.font_14bd{border-bottom:1px solid #1b979d;}
+/*首页banner*/
+.shouye_banner{height:450px;background: url(../images/2bmain/shouye_banner.png) no-repeat center top;border-top: 1px solid #1b9d97;}
+/*采购单*/
+.caigou_dan{position:relative;width:1200px;margin:0 auto;box-shadow: 0px 3px 3px #ccc;top:-109px; background:#fafafa;overflow:hidden;cursor:pointer;}
+.caigou_danz{width:220px;height:130px;background: url(../images/2bmain/caigoudan.png) no-repeat;overflow: hidden;float:left;}
+.caigou_wen{font-size:24px;color:#fff;text-align:center;margin-top:36px;}
+.caigou_wen2{font-size:14px;color:#fff;text-align:center;padding:10px 0 0 0;}
+.caigou_dany{float:left;padding:40px 0 0 0;}
+.caigou_dany ul{overflow:hidden;}
+.csp_1{font-size:16px;color:#333;
+    font-weight:bold;}
+.csp_2{font-size:12px;color:#333;padding:16px 0 0 0;}
+.caigou_dany ul li{float:left;padding:0px 60px 0 63px;border-right:1px solid #ccc;cursor:pointer;}
+.no_border{border:none!important;}
+/*一站式*/
+.yizhanshi{width:1200px;margin:0 auto;margin-top:-20px;}
+.title1{font-size:30px;color:#333;margin:0 0 20px 0;}
+.fugai{font-size:12px;color:#999;padding:0 0 0 10px;}
+.zizhanz{width:476px;height:336px;background:url(../images/2bmain/yizhanshi1.png) no-repeat;position:relative;margin:0 10px 0 0;}
+.yzsp1{font-size: 24px;color:#fff;}
+.yzsp12{font-size:24px;color:#fff;}
+.yzsp2{font-size:12px;color:#d3d1d1;}
+.yizhanshiwen{padding:20px;background:rgba(0,0,0,0.5);position:absolute;left:0;bottom:0px;width:426px;}
+.yizhanshiwen2{padding:8px 0 9px 22px;background:rgba(0,0,0,0.5);position:absolute;left:0;bottom:0px;width:447px;}
+.yizhanshiwen3{padding:8px 0 9px 22px;background:rgba(0,0,0,0.5);position:absolute;left:0;bottom:0px;width:208px;}
+.yizhanshiwen4{padding:8px 0 9px 22px;background:rgba(0,0,0,0.5);position:absolute;left:0;bottom:0px;width:213px;}
+.zizhanz,.yizhanr,.yzsyy,.yzsyz{float:left;}
+.zizhanz{
+    cursor: pointer;}
+.yzss{width:470px;height:158px;background:url(../images/2bmain/yizhanshi2.png) no-repeat;position:relative;cursor: pointer;}
+.yzsx{width:470px;height:168px;margin:10px 0 0 0;}
+.yzsx2l{background:url(../images/2bmain/yizhanshi3.png) no-repeat;position:relative;float:left;margin-right:10px;width:230px;height:168px;cursor: pointer;}
+.yzsx2r{background:url(../images/2bmain/bucong_2.jpg) no-repeat;position:relative;float:left;width:230px;height:168px;cursor: pointer;}
+.yzsyy{background:url(../images/2bmain/yizhanshi4.png) no-repeat;position:relative;width:234px;height:336px;margin:0 0 0 10px;cursor: pointer;}
+/*自营产品*/
+.ziying1{width:1200px;margin:0 auto;margin-top:40px;}
+.ziying1_1{width:380px;height:398px;float:left;}
+.lunbo_ziying{overflow:hidden;width:380px;height:338px;position:relative;}
+.bannerLoop6{height:338px;}
+.bannerLoop6 ol{bottom:0px;left:50%;margin-left: -72px;}
+.bannerLoop6 ul{width:452px;height:338px;position:relative;margin-left: -226px;}
+.xuancuan{font-size:14px;color:#fff;background:#333;padding:14px 0 13px 50px;margin-top:-3px;}
+.xuancuan a{font-size:14px;color:#fff;}
+.xuancuan a:hover{color:#1b9d97;}
+.ziying_r{width:820px;float:left;overflow:hidden;}
+.ziying_jg{font-size: 14px;color:#333;text-align: center;margin-top: 24px;}
+.ziying_qs{color:#BDBDBD;font-size: 14px;}
+.jiage_hong{color:#dd143c;font-size: 14px;}
+.ziying_r ul li{text-align: center;float:left;border-top: 1px solid #ccc;
+border-right: 1px solid #ccc;position:relative;}
+.remai1{background:url(../images/2bmain/remai1.png)no-repeat center top;position:absolute;right:0;top:0;width:44px;height:34px;color:#fff;font-size: 14px;text-align: center;line-height: 21px;}
+.remai2{background:url(../images/2bmain/remai2.png)no-repeat center top;position:absolute;right:0;top:0;width:44px;height:34px;color:#fff;font-size: 14px;text-align: center;line-height: 21px;}
+.remai3{background:url(../images/2bmain/remai3.png)no-repeat center top;position:absolute;right:0;top:0;width:44px;height:34px;color:#fff;font-size: 14px;text-align: center;line-height: 21px;}
+.zhuanchang{clear:both;background:#e6f5f4;width:1177px;height:119px;overflow:hidden;padding:35px 0 0 23px;}
+.zhuanchang dt{height:54px;border-right: 1px solid #1b9d97;color:#1b9d97;font-size: 16px;float:left;font-weight: bold;padding:10px 23px 0  0;}
+.zhuanchang dd a{font-size: 14px;color:#333;display:block;padding:0 0 0 20px;}
+.zhuanchang dd a:hover{color:#1b9d97;}
+.zhuanchang dd{text-align: center;width:100px;float:left;margin:0 25px 0 34px;}
+.zhuanchang dd .last_a{padding:0 0 0 8px;}
+/*社交互动*/
+.shejiao{width:1200px;margin:40px auto;overflow:hidden;}
+.luntantou{width:230px;height:48px;background:#333;text-align: center;}
+.luntantou a{text-align: center;color:#fff;font-size: 18px;display:inline-block;line-height: 48px;}
+.luntantou a:hover{color:#1b9d97;}
+.shejiao li{float:left;margin-right: 11px;}
+.no_margin{margin:0!important;}
+/*方案项目*/
+.fanganxiangmu{position:absolute;left:-44px;top:26px;width:650px;display:none;z-index:10;padding-top:10px;border: 1px solid #1b9d97;padding:10px 0 20px 6px;}
+.fanganxiangmu dd{padding-top:10px;}
+.fanganxiangmu1{position:relative;}
+/*首页banner轮播*/
+.lunbo_ziying2s{overflow:hidden;height:600px;position:relative;}
+.bannerLoop8{height:550px;}
+.bannerLoop8 ol{bottom:63px;left:45%;}
+.bannerLoop8 ul{height:600px;position:relative;margin-left: -960px;left:50%;width:1920px!important;}
+.shouye_banner2s{height:600px;border-top: 1px solid #1b9d97;position:relative;}
+/*补充*/
+.shouye_ziying_1 li{width: 272px;
+    height:200px;overflow: hidden;}
+.shouye_ziying_1 li a{display: inline-block;width: 272px;padding:100px 0 0 0;height:100px;}
+.shouye_ziying_1 li a:hover{background:rgba(246,245,250,0.3)}
+.yzss:hover,.zizhanz:hover,.yzsx2l:hover,.yzsx2r:hover,.yzsyy:hover{box-shadow:2px 2px 8px #1b979d;}
+/*修改搜索图片*/
+.shouye_ziying_1 li a  img{
+    position:absolute;
+    left:52px;top:60px;
+    z-index:-1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.i9he.m2b.mapper.userBalance2bMapper" >
+  <resultMap id="BaseResultMap" type="com.i9he.m2b.model.userBalance" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="money" property="money" jdbcType="DECIMAL" />
+    <result column="charge_sj" property="chargeSj" jdbcType="TIMESTAMP" />
+    <result column="charge_type" property="chargeType" jdbcType="INTEGER" />
+    <result column="charge_order" property="chargeOrder" jdbcType="VARCHAR" />
+    <result column="charge_log" property="chargeLog" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, money, charge_sj, charge_type, charge_order, charge_log
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from b2b_user_balance
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" parameterType="com.i9he.m2b.model.userBalance" useGeneratedKeys="true" keyProperty="id" >
+    insert into b2b_user_balance (user_id, money, charge_sj, 
+      charge_type, charge_order, charge_log
+      )
+    values (#{userId,jdbcType=INTEGER}, #{money,jdbcType=DECIMAL}, #{chargeSj,jdbcType=TIMESTAMP}, 
+      #{chargeType,jdbcType=INTEGER}, #{chargeOrder,jdbcType=VARCHAR}, #{chargeLog,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.i9he.m2b.model.userBalance" useGeneratedKeys="true" keyProperty="id" >
+    insert into b2b_user_balance
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="chargeSj != null" >
+        charge_sj,
+      </if>
+      <if test="chargeType != null" >
+        charge_type,
+      </if>
+      <if test="chargeOrder != null" >
+        charge_order,
+      </if>
+      <if test="chargeLog != null" >
+        charge_log,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeSj != null" >
+        #{chargeSj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chargeType != null" >
+        #{chargeType,jdbcType=INTEGER},
+      </if>
+      <if test="chargeOrder != null" >
+        #{chargeOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeLog != null" >
+        #{chargeLog,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.i9he.m2b.model.userBalance" >
+    update b2b_user_balance
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeSj != null" >
+        charge_sj = #{chargeSj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chargeType != null" >
+        charge_type = #{chargeType,jdbcType=INTEGER},
+      </if>
+      <if test="chargeOrder != null" >
+        charge_order = #{chargeOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeLog != null" >
+        charge_log = #{chargeLog,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.i9he.m2b.model.userBalance" >
+    update b2b_user_balance
+    set user_id = #{userId,jdbcType=INTEGER},
+      money = #{money,jdbcType=DECIMAL},
+      charge_sj = #{chargeSj,jdbcType=VARCHAR},
+      charge_type = #{chargeType,jdbcType=TIMESTAMP},
+      charge_order = #{chargeOrder,jdbcType=VARCHAR},
+      charge_log = #{chargeLog,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getallbyuser" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from b2b_user_balance
+    where user_id = #{userId,jdbcType=INTEGER}
+    ORDER BY id DESC
+  </select>
+  
+  <select id="getUserbalanceId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select 
+    max(id)
+    from b2b_user_balance
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  
+  <select id="getUserbalance" parameterType="com.i9he.m2b.model.search.UserbalanceSearchModel" resultMap="BaseResultMap">
+    <!--
+    www.9he.com
+    -->
+    select * from b2b_user_balance
+    order by id desc
+    limit #{startPage}, #{pageSize}
+  </select>
+  
+  <select id="getUserbalanceCount" parameterType="com.i9he.m2b.model.search.UserbalanceSearchModel" resultType="int">
+  	select count(1)
+  	from b2b_user_balance 
+  </select>
+  
+  <select id="getAfterlog" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from b2b_user_balance
+    WHERE charge_sj BETWEEN DATE_SUB(NOW(),INTERVAL 6 MONTH) AND NOW() AND user_id = #{userId,jdbcType=INTEGER}
+    ORDER BY id DESC;
+  </select>
+  
+  <select id="getBeforelog" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from b2b_user_balance
+    WHERE YEAR(charge_sj)=YEAR(DATE_SUB(NOW(),INTERVAL 6 MONTH)) AND user_id = #{userId,jdbcType=INTEGER}
+    ORDER BY id DESC;
+  </select>
+  
+  <select id="GetMaxID" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+  	SELECT MAX(id) FROM b2b_user_balance WHERE user_id = #{userId,jdbcType=INTEGER}; 
+  </select>
+  
+</mapper>

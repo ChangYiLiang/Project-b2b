@@ -1,0 +1,86 @@
+.loginInfo{
+	width:350px;
+	/*height:485px;*/
+}
+.logintitle,.logintitle:hover {
+	font-size:20px;
+	color:#1B9D97;
+	font-weight: normal;
+}
+.active .logintitle{
+	font-weight: bold;
+}
+
+#username,#password,#mobile,#rePassword{
+	margin-left:8px;
+	border: 1px solid #999999;
+	width:240px;
+	height:40px;
+	padding-left:10px
+}
+#code{
+	border: 1px solid #999999;
+	height:40px;
+	width:160px;
+	padding-left:10px
+}
+#mCode{
+	width:110px;
+	height:40px;
+}
+.zd{
+	margin-left:-10px;
+}
+.btn{
+	width:280px;
+	height:35px;
+}
+#logoImg{
+	width:380px;
+	height:200px;
+}
+#errorInfo{
+	color:#a94442;
+	font-size:12px;
+}
+.regw{
+	margin-top:6px;
+}
+.focus{  
+    border: 1px solid #1B9D97;  
+}
+input{
+	font-size:16px;
+}
+.loginimage{
+	background-image: url("../images/2buser/login.jpg");
+	height:560px;
+}
+.title{
+	margin-left:-10px;
+}
+.qqlogin{
+	width:80px;
+	hright:80px;
+}
+
+#username1,#email{
+	margin-left:8px;
+	border: 1px solid #999999;
+	width:240px;
+	height:40px;
+	padding-left:10px
+}
+.getPwd{
+	width:350px;
+	height:300px;
+	margin-bottom:80px;
+}
+#errorInfo1{
+	color:#a94442;
+	font-size:15px;
+}
+
+.jh-oauth-logos img{
+	width: 50px;
+}

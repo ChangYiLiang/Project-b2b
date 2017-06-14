@@ -1,0 +1,27 @@
+.mContent{
+	font-family:'微软雅黑 Regular', '微软雅黑';
+	font-size:14px;
+	color:#999999;
+	margin-left:20px;
+}
+.mTitle{
+	font-family:'微软雅黑 Regular', '微软雅黑';
+	font-size:18px;
+	margin-left:20px;
+}
+.mTime{
+	font-family:'微软雅黑 Regular', '微软雅黑';
+	font-size:14px;
+	color:#333333;
+	margin-right:45px;
+}
+.mUrl{
+	margin-right:45px;
+}
+.message{
+	padding-bottom:5px;
+}
+.close{
+	width:880px;
+	margin-right:10px;
+}

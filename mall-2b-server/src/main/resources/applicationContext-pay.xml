@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-4.0.xsd"
+	default-lazy-init="true ">
+
+	<!-- 第三方API配置 -->
+	<!-- 支付宝即时到帐支付配置 -->
+	<bean id="alipayDirectConfig" class="com.i9he.common.alipay.config.AlipayConfig" factory-method="getInstance" lazy-init="false">
+		<property name="partner" value="${pay.alipay.partner}" />
+		<property name="signType" value="${pay.alipay.signType}" />
+		<property name="key" value="${pay.alipay.key}" />
+		<property name="returnUrl" value="${pay.alipay.returnUrl}" />
+		<!--<property name="notifyUrl" value="http://lailexin.gicp.net/2b/pay/alipay_notify.do" />-->
+		<property name="uriEncoding" value="iso-8859-1" /><!-- URI默认编码: 可以通过server.xml修改 -->
+	</bean>
+	<!-- 扫码支付 -->
+	<bean id="alipayNotifyConfig" class="com.i9he.common.alipay.config.AlipayConfig" factory-method="newInstance" lazy-init="false">
+		<constructor-arg value="false" />
+		<property name="partner" value="${pay.alipay.partner}" />
+		<property name="signType" value="${pay.alipay.signType}" />
+		<property name="key" value="${pay.alipay.key}" />
+		<property name="notifyUrl" value="${pay.alipay.notifyUrl}" />
+		<property name="qrPayMode" value="4" />
+		<property name="qrcodeWidth" value="200" />
+	</bean> 
+	<!-- 支付宝退款配置 -->
+	<bean id="alipayRefundConfig" class="com.i9he.common.alipay.config.AlipayConfig" factory-method="newInstance" lazy-init="false">
+		<constructor-arg value="false" />
+		<property name="partner" value="${pay.alipay.partner}" />
+		<property name="signType" value="${pay.alipay.signType}" />
+		<property name="key" value="${pay.alipay.key}" />
+		<property name="notifyUrl" value="http://lailexin.gicp.net:8888/2b/pay/alipay_refund_notify.do" />
+	</bean>
+	<!-- 支付宝默认回调: id必须为 defaultAlipayCallback -->
+	<bean id="defaultAlipayCallback" class="com.i9he.m2b.server.controller.callback.DefaultAlipayCallback" />
+	<!-- 支付宝充值回调: id必须为 chargeAlipayCallback -->
+	<bean id="chargeAlipayCallback" class="com.i9he.m2b.server.controller.callback.ChargeAlipayCallback" />
+	<!-- 支付宝扫码充值回调: id必须为 payChargeCallback -->
+	<bean id="payChargeCallback" class="com.i9he.m2b.server.controller.callback.PayChargeCallback" />
+	<!-- 支付订单回调 -->
+	<bean id="payOrderCallback" class="com.i9he.m2b.server.controller.callback.PayOrderCallback" />
+	
+	<!-- 微信支付 -->
+	<bean id="wxConfigure" class="com.i9he.common.wxpay.WxConfigure" factory-method="getInstance" lazy-init="false">
+		<property name="appID" value="${pay.wxpay.appID}" />
+		<property name="mchID" value="${pay.wxpay.mchID}" />
+		<property name="key"  value="${pay.wxpay.key}" />
+		<property name="ip"  value="${pay.wxpay.ip}" />
+		<property name="notifyUrl" value="${pay.wxpay.notifyUrl}" />
+	</bean>
+	<!-- 微信退款配置 -->
+	<bean id="wxRefundConfigure" class="com.i9he.common.wxpay.WxConfigure" factory-method="newInstance" lazy-init="false">
+		<property name="requiredCert" value="true" />
+		<property name="sslCertPath" value="${pay.wxpay.sslCertPath}" />
+		<property name="sslCertPassword" value="${pay.wxpay.sslCertPassword}" />
+	</bean>
+	<!-- 微信支付回调配置 -->
+	<bean id="wxTestCallback" class="com.i9he.m2b.server.controller.callback.WxTestCallback" />
+	
+	<!-- 微信支付订单 -->
+	<bean id="wxOrderCallback" class="com.i9he.m2b.server.controller.callback.WxOrderCallback" />
+	<!-- 微信扫码充值 -->
+	<bean id="wxChargeCallback" class="com.i9he.m2b.server.controller.callback.WxChargeCallback" />
+	
+	<bean class="com.i9he.m2b.server.controller.callback.WxCallbackConfig">
+		<property name="callbacks">
+			<map>
+				<entry key="TEST_" value-ref="wxTestCallback" />
+				<entry key="ORDER_" value-ref="wxOrderCallback" />
+				<entry key="CHARGE_" value-ref="wxChargeCallback" />
+			</map>
+		</property>
+	</bean>
+	
+	<!-- 京东网关支付 -->
+	<bean id="jdpayConfig" class="com.i9he.common.jdpay.JDPayConfig">
+		<property name="key" value="${pay.jdpay.key}" />
+		<property name="mid" value="${pay.jdpay.mid}" />
+		<property name="moneyType" value="CNY" />
+		<property name="returnUrl" value="${pay.jdpay.returnurl}" />
+	</bean>
+	<bean id="jdpayOrderCallback" class="com.i9he.m2b.server.controller.callback.JDPayOrderCallback" />
+	<bean id="jdpayChargeCallback" class="com.i9he.m2b.server.controller.callback.JDPayChargeCallback" />
+	<bean id="jdpayCallbacks" class="java.util.HashMap">
+		<constructor-arg>
+			<map>
+				<entry key="0" value-ref="jdpayOrderCallback" />
+				<entry key="1" value-ref="jdpayChargeCallback" />
+			</map>
+		</constructor-arg>
+	</bean>
+	
+</beans>

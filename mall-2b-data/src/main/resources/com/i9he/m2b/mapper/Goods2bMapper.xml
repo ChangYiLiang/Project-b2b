@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.i9he.m2b.mapper.Goods2bMapper">
+<!--
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache">
+		<property name="timeToIdleSeconds" value="3600" />
+		<property name="timeToLiveSeconds" value="3600" />
+		<property name="eternal" value="true"/>
+		<property name="maxEntriesLocalHeap" value="1000" />
+		<property name="maxEntriesLocalDisk" value="10000000" />
+		<property name="memoryStoreEvictionPolicy" value="LRU" />
+	</cache>
+-->
+  <resultMap id="BaseResultMap" type="com.i9he.m2b.model.Goods">
+    <!--
+    www.9he.com
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="brand_id" jdbcType="INTEGER" property="brandId" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="main_title" jdbcType="VARCHAR" property="mainTitle" />
+    <result column="second_title" jdbcType="VARCHAR" property="secondTitle" />
+    <result column="goods_price" jdbcType="DECIMAL" property="goodsPrice" />
+    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="is_buy" jdbcType="INTEGER" property="isBuy" />
+    <result column="up_date" jdbcType="TIMESTAMP" property="upDate" />
+    <result column="off_date" jdbcType="TIMESTAMP" property="offDate" />
+    <result column="click_count" jdbcType="INTEGER" property="clickCount" />
+    <result column="if_idc" jdbcType="BIT" property="ifIdc" />
+    <result column="add_date" jdbcType="INTEGER" property="addDate" />
+    <result column="setup_fee" jdbcType="DECIMAL" property="setupFee" />
+    <result column="goods_img" jdbcType="VARCHAR" property="goodsImg" />
+    <result column="goods_type" jdbcType="INTEGER" property="goodsType" />
+    <result column="goods_test" jdbcType="VARCHAR" property="goodsTest" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="iftrust" jdbcType="INTEGER" property="iftrust" />
+    <result column="ifonly" jdbcType="INTEGER" property="ifonly" />
+    <result column="jsfile" jdbcType="VARCHAR" property="jsfile" />
+  </resultMap>
+  
+  <resultMap id="GoodsRankResult" type="com.i9he.m2b.model.GoodsRank">
+	    <result column="goods_name"  property="goods_name" />
+	    <result column="goodsCount"  property="goodsCount" />
+  </resultMap>
+  
+  <resultMap id="GoodsSellViewModelResult" type="com.i9he.m2b.model.GoodsSellViewModel">
+	    <result column="goods_name"  property="goods_name" />
+	    <result column="goodsCount"  property="goodsCount" />
+  </resultMap>
+  
+  <resultMap type="com.i9he.m2b.model.GoodsAllRank" id="GoodsAllRankResult">
+  		<result column="goods_name"  property="goodsName" />
+	    <result column="number"  property="number" />
+	    <result column="money"  property="money" />
+  </resultMap>
+  
+  
+   <resultMap id="OrderSalesVolumeResult" type="com.i9he.m2b.model.OrderSalesVolume">
+    <result column="time" property="time" />
+    <result column="number"  property="number" />
+    <result column="money" property="money" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.i9he.m2b.model.Goods">
+    <!--
+    www.9he.com
+    -->
+    <result column="goods_desc" jdbcType="LONGVARCHAR" property="goodsDesc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+    www.9he.com
+    -->
+    id, brand_id, goods_name, main_title, second_title, goods_price, category_id, is_buy, 
+    up_date, off_date, click_count, if_idc, add_date, setup_fee, goods_img, goods_type, goods_test,sort,iftrust,ifonly
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--
+    www.9he.com
+    -->
+    goods_desc,jsfile
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    <!--
+    www.9he.com
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from b2b_goods
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--
+    www.9he.com
+    -->
+    delete from b2b_goods
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.i9he.m2b.model.Goods">
+    <!--
+    www.9he.com
+    -->
+    insert into b2b_goods (id, brand_id, goods_name, 
+      main_title, second_title, goods_price, 
+      category_id, is_buy, up_date, 
+      off_date, click_count, if_idc, 
+      add_date, setup_fee, goods_desc,
+      goods_img, goods_type, goods_test,sort,iftrust,ifonly
+      )
+    values (#{id,jdbcType=INTEGER}, #{brandId,jdbcType=INTEGER}, #{goodsName,jdbcType=VARCHAR}, 
+      #{mainTitle,jdbcType=VARCHAR}, #{secondTitle,jdbcType=VARCHAR}, #{goodsPrice,jdbcType=DECIMAL}, 
+      #{categoryId,jdbcType=INTEGER}, #{isBuy,jdbcType=INTEGER}, #{upDate,jdbcType=TIMESTAMP}, 
+      #{offDate,jdbcType=TIMESTAMP}, #{clickCount,jdbcType=INTEGER}, #{ifIdc,jdbcType=BIT}, 
+      #{addDate,jdbcType=INTEGER}, #{setupFee,jdbcType=DECIMAL}, #{goodsDesc,jdbcType=LONGVARCHAR},
+      #{goodsImg,jdbcType=VARCHAR}, #{goodsType,jdbcType=INTEGER}, #{goodsTest,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{iftrust,jdbcType=INTEGER},#{ifonly,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.i9he.m2b.model.Goods">
+    <!--
+    www.9he.com
+    -->
+    insert into b2b_goods
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="brandId != null">
+        brand_id,
+      </if>
+      <if test="goodsName != null">
+        goods_name,
+      </if>
+      <if test="mainTitle != null">
+        main_title,
+      </if>
+      <if test="secondTitle != null">
+        second_title,
+      </if>
+      <if test="goodsPrice != null">
+        goods_price,
+      </if>
+      <if test="categoryId != null">
+        category_id,
+      </if>
+      <if test="isBuy != null">
+        is_buy,
+      </if>
+      <if test="upDate != null">
+        up_date,
+      </if>
+      <if test="offDate != null">
+        off_date,
+      </if>
+      <if test="clickCount != null">
+        click_count,
+      </if>
+      <if test="ifIdc != null">
+        if_idc,
+      </if>
+      <if test="addDate != null">
+        add_date,
+      </if>
+      <if test="setupFee != null">
+        setup_fee,
+      </if>
+      <if test="goodsDesc != null">
+        goods_desc,
+      </if>
+      <if test="goodsImg != null">
+        goods_img,
+      </if>
+      <if test="goodsType != null">
+        goods_type,
+      </if>
+      <if test="goodsTest != null">
+        goods_test,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="iftrust != null">
+        iftrust,
+      </if>
+      <if test="ifonly != null">
+        ifonly,
+      </if>
+      <if test="jsfile != null">
+        jsfile,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="brandId != null">
+        #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsName != null">
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="mainTitle != null">
+        #{mainTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="secondTitle != null">
+        #{secondTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsPrice != null">
+        #{goodsPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="isBuy != null">
+        #{isBuy,jdbcType=INTEGER},
+      </if>
+      <if test="upDate != null">
+        #{upDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offDate != null">
+        #{offDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clickCount != null">
+        #{clickCount,jdbcType=INTEGER},
+      </if>
+      <if test="ifIdc != null">
+        #{ifIdc,jdbcType=BIT},
+      </if>
+      <if test="addDate != null">
+        #{addDate,jdbcType=INTEGER},
+      </if>
+      <if test="setupFee != null">
+        #{setupFee,jdbcType=DECIMAL},
+      </if>
+      <if test="goodsDesc != null">
+        #{goodsDesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="goodsImg != null">
+        #{goodsImg,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsType != null">
+        #{goodsType,jdbcType=INTEGER},
+      </if>
+      <if test="goodsTest != null">
+        #{goodsTest,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="iftrust != null">
+        #{iftrust,jdbcType=INTEGER},
+      </if>
+      <if test="ifonly != null">
+        #{ifonly,jdbcType=INTEGER},
+      </if>
+      <if test="jsfile != null">
+        #{jsfile,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.i9he.m2b.model.Goods">
+    <!--
+    www.9he.com
+    -->
+    update b2b_goods
+    <set>
+      <if test="brandId != null">
+        brand_id = #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsName != null">
+        goods_name = #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="mainTitle != null">
+        main_title = #{mainTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="secondTitle != null">
+        second_title = #{secondTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsPrice != null">
+        goods_price = #{goodsPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="categoryId != null">
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="isBuy != null">
+        is_buy = #{isBuy,jdbcType=INTEGER},
+      </if>
+      <if test="upDate != null">
+        up_date = #{upDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offDate != null">
+        off_date = #{offDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clickCount != null">
+        click_count = #{clickCount,jdbcType=INTEGER},
+      </if>
+      <if test="ifIdc != null">
+        if_idc = #{ifIdc,jdbcType=BIT},
+      </if>
+      <if test="addDate != null">
+        add_date = #{addDate,jdbcType=INTEGER},
+      </if>
+      <if test="setupFee != null">
+        setup_fee = #{setupFee,jdbcType=DECIMAL},
+      </if>
+      <if test="goodsDesc != null">
+        goods_desc = #{goodsDesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="goodsImg != null">
+        goods_img = #{goodsImg,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsType != null">
+        goods_type = #{goodsType,jdbcType=INTEGER},
+      </if>
+      <if test="goodsTest != null">
+        goods_test = #{goodsTest,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="iftrust != null">
+        iftrust = #{iftrust,jdbcType=INTEGER},
+      </if>
+      <if test="ifonly != null">
+        ifonly = #{ifonly,jdbcType=INTEGER},
+      </if>
+      <if test="jsfile != null">
+        jsfile = #{jsfile,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.i9he.m2b.model.Goods">
+    <!--
+    www.9he.com
+    -->
+    update b2b_goods
+    set brand_id = #{brandId,jdbcType=INTEGER},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      main_title = #{mainTitle,jdbcType=VARCHAR},
+      second_title = #{secondTitle,jdbcType=VARCHAR},
+      goods_price = #{goodsPrice,jdbcType=DECIMAL},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      is_buy = #{isBuy,jdbcType=INTEGER},
+      up_date = #{upDate,jdbcType=TIMESTAMP},
+      off_date = #{offDate,jdbcType=TIMESTAMP},
+      click_count = #{clickCount,jdbcType=INTEGER},
+      if_idc = #{ifIdc,jdbcType=BIT},
+      add_date = #{addDate,jdbcType=INTEGER},
+      setup_fee = #{setupFee,jdbcType=DECIMAL},
+      goods_desc = #{goodsDesc,jdbcType=LONGVARCHAR},
+      goods_img = #{goodsImg,jdbcType=VARCHAR},
+      goods_type = #{goodsType,jdbcType=INTEGER},
+      goods_test = #{goodsTest,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      iftrust = #{iftrust,jdbcType=INTEGER},
+      ifonly = #{ifonly,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.i9he.m2b.model.Goods">
+    <!--
+    www.9he.com
+    -->
+    update b2b_goods
+    set brand_id = #{brandId,jdbcType=INTEGER},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      main_title = #{mainTitle,jdbcType=VARCHAR},
+      second_title = #{secondTitle,jdbcType=VARCHAR},
+      goods_price = #{goodsPrice,jdbcType=DECIMAL},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      is_buy = #{isBuy,jdbcType=INTEGER},
+      up_date = #{upDate,jdbcType=TIMESTAMP},
+      off_date = #{offDate,jdbcType=TIMESTAMP},
+      click_count = #{clickCount,jdbcType=INTEGER},
+      if_idc = #{ifIdc,jdbcType=BIT},
+      add_date = #{addDate,jdbcType=INTEGER},
+      setup_fee = #{setupFee,jdbcType=DECIMAL},
+      goods_img = #{goodsImg,jdbcType=VARCHAR},
+      goods_type = #{goodsType,jdbcType=INTEGER},
+      goods_test = #{goodsTest,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      iftrust = #{iftrust,jdbcType=INTEGER},
+      ifonly = #{ifonly,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="getGoodsByCategoryId" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer">
+  	select 
+  	<include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from b2b_goods
+    where category_id = #{categoryId,jdbcType=INTEGER} and is_buy = 1 order by sort
+  </select>
+  <select id="getAllGoods" resultMap="BaseResultMap">
+  	select  
+  	<include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from b2b_goods order by id DESC
+  </select>
+  
+  <select id="deleteGoods" resultMap="BaseResultMap">
+  	update b2b_goods
+  	set is_buy = #{isBuy,jdbcType=INTEGER}  
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <sql id="getGoodsCondition">
+  	where 1=1
+  	<!-- 状态查询 -->
+  	<if test="ifIdc != null">
+  		and if_idc = #{ifIdc}
+  	</if>
+  	<if test="isBuy != null">
+  		and is_buy = #{isBuy}
+  	</if>
+  	<if test="iftrust != null">
+  		and iftrust = #{iftrust}
+  	</if>
+  	<if test="ifonly != null">
+  		and ifonly = #{ifonly}
+  	</if>
+  	<if test="categoryId != null">
+  		and category_id = #{categoryId}
+  	</if>
+  	<trim prefix="and (" suffix=")" prefixOverrides="and|or">
+	  	<if test="keyword != null and keyword != ''">
+			and CONCAT_WS(',',goods_name) like CONCAT('%', #{keyword}, '%')
+			or id in (select target_id from b2b_tag_mapping m inner join b2b_tag t on t.id = m.tag_id where t.name like CONCAT('%', #{keyword}, '%') and m.type=0)
+		</if>
+	</trim>
+  </sql>
+  
+  <select id="getGoods" parameterType="com.i9he.m2b.model.search.GoodsSearchModel" resultMap="BaseResultMap">
+    <!--
+    www.9he.com
+    -->
+    select * from b2b_goods
+    <include refid="getGoodsCondition" />
+    and is_buy = 1
+    order by id desc
+    limit #{startPage}, #{pageSize}
+  </select>
+  
+  <select id="getGoodsCount" parameterType="com.i9he.m2b.model.search.GoodsSearchModel" resultType="int">
+  	select count(1)
+  	from b2b_goods 
+  	<include refid="getGoodsCondition" />
+  	and is_buy = 1
+  </select>
+  
+  <select id="getGoodsByType" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    <!--
+    www.9he.com
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from b2b_goods
+    where goods_type = 2 and category_id = #{categoryId,jdbcType=INTEGER} limit 0,3
+  </select>
+  
+  <select id="selectGoodsIdByKeyword" resultType="int" parameterType="com.i9he.m2b.model.search.GoodsSearchModel">
+  	select id from b2b_goods
+  	<include refid="getGoodsCondition" />
+  </select>
+  
+  <select id="getmax" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select max(id) from b2b_goods
+  </select>
+  
+  <select id="getOnlyGoods" resultMap="BaseResultMap">
+  	select  
+  	<include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from b2b_goods where ifonly != 1  order by id DESC
+  </select>
+  
+  
+  <select id="getGoodsRankByM" resultMap="GoodsRankResult">
+  			SELECT `goods_name`,COUNT(*) AS goodsCount
+				FROM `b2b_goods` 
+				LEFT JOIN `ord_goods`
+				ON `b2b_goods`.`id` = `ord_goods`.`goods_id`
+				LEFT JOIN `ord_order`
+				ON `ord_goods`.`order_id` = `ord_order`.`id`
+				WHERE `ord_order`.`id` 
+				IN (
+					SELECT `order_id` 
+					FROM `ord_batch` 
+					WHERE `batch_id` 
+					IN (SELECT id FROM `ord_order` WHERE  `ord_order`.`pay_time` IS NOT NULL AND `ord_order`.`type1`<![CDATA[  <>  ]]>0)
+					AND is_batch = 0
+					UNION 
+					SELECT id AS order_id FROM `ord_order` WHERE  `ord_order`.`pay_time` IS NOT NULL AND `ord_order`.`type1`<![CDATA[  <>  ]]>0
+					AND `ord_order`.`id` NOT IN 
+					(SELECT `order_id` FROM `ord_batch`)
+				)
+				AND  MONTH(`pay_time`) = MONTH(CURDATE())
+				AND YEAR(`pay_time`) = YEAR(CURDATE())	
+				GROUP BY goods_name
+				ORDER BY goodsCount DESC
+				LIMIT 0,10
+  </select>
+  
+  <select id="getGoodsRankByQ" resultMap="GoodsRankResult">
+  			SELECT `goods_name`,COUNT(*) AS goodsCount
+					FROM `b2b_goods` 
+					LEFT JOIN `ord_goods`
+					ON `b2b_goods`.`id` = `ord_goods`.`goods_id`
+					LEFT JOIN `ord_order`
+					ON `ord_goods`.`order_id` = `ord_order`.`id`
+					WHERE `ord_order`.`id` 
+					IN (
+						SELECT `order_id` 
+						FROM `ord_batch` 
+						WHERE `batch_id` 
+						IN (SELECT id FROM `ord_order` WHERE  `ord_order`.`pay_time` IS NOT NULL AND `ord_order`.`type1`<![CDATA[  <>  ]]>0)
+						AND is_batch = 0
+						UNION 
+						SELECT id AS order_id FROM `ord_order` WHERE  `ord_order`.`pay_time` IS NOT NULL AND `ord_order`.`type1`<![CDATA[  <>  ]]>0
+						AND `ord_order`.`id` NOT IN 
+						(SELECT `order_id` FROM `ord_batch`)
+					)
+					AND QUARTER(`pay_time`) = QUARTER( CURDATE( )) 
+				        AND YEAR(`pay_time`) = YEAR(CURDATE())	
+					GROUP BY goods_name
+					ORDER BY goodsCount DESC
+					LIMIT 0,10
+  </select>
+  
+  <select id="getListGoodsSell" resultMap="GoodsSellViewModelResult">
+  			SELECT `b2b_category`.`name`,COUNT(*) AS orderNunber,SUM(`ord_order`.`amount`) AS orderMoney 
+				FROM `b2b_category` 
+				LEFT JOIN `b2b_goods` 
+				ON `b2b_category`.`id` = `b2b_goods`.`category_id`
+				LEFT JOIN `ord_goods` 
+				ON `ord_goods`.`goods_id` = `b2b_goods`.`id`
+				LEFT JOIN `ord_order`
+				ON `ord_order`.id = `ord_goods`.`order_id`
+				WHERE `ord_order`.id 
+				IN (
+					SELECT `order_id` 
+					FROM `ord_batch` 
+					WHERE `batch_id` 
+					IN (SELECT id FROM `ord_order` WHERE  `ord_order`.`pay_time` IS NOT NULL AND `ord_order`.`type1`<![CDATA[  <>  ]]>0)
+					AND is_batch = 0
+					UNION 
+					SELECT id AS order_id FROM `ord_order` WHERE  `ord_order`.`pay_time` IS NOT NULL AND `ord_order`.`type1`<![CDATA[  <>  ]]>0
+					AND `ord_order`.`id` NOT IN 
+					(SELECT `order_id` FROM `ord_batch`)
+				)
+				GROUP BY `b2b_category`.`id`
+  </select>
+  
+  <select id="getGoodsAllRank" resultMap="GoodsAllRankResult">
+  		SELECT `goods_name`,COUNT(*) AS number,SUM(`amount`) AS money
+		FROM `b2b_goods` 
+		LEFT JOIN `ord_goods`
+		ON `b2b_goods`.`id` = `ord_goods`.`goods_id`
+		LEFT JOIN `ord_order`
+		ON `ord_goods`.`order_id` = `ord_order`.`id`
+		WHERE `ord_order`.`id` 
+		IN (
+			SELECT `order_id` 
+			FROM `ord_batch` 
+			WHERE `batch_id` 
+			IN (SELECT id FROM `ord_order` WHERE  `ord_order`.`pay_time` IS NOT NULL AND `ord_order`.`type1`<![CDATA[  <>  ]]>0)
+			AND is_batch = 0
+			UNION 
+			SELECT id AS order_id FROM `ord_order` WHERE  `ord_order`.`pay_time` IS NOT NULL AND `ord_order`.`type1`<![CDATA[  <>  ]]>0
+			AND `ord_order`.`id` NOT IN 
+			(SELECT `order_id` FROM `ord_batch`)
+		)
+		GROUP BY goods_name
+		ORDER BY number DESC 
+		LIMIT 0,10
+  	
+  </select>
+  
+  <select id="getGoodsRankByY" resultMap="GoodsRankResult">
+        SELECT `goods_name`,COUNT(*) AS goodsCount
+		FROM `b2b_goods` 
+		LEFT JOIN `ord_goods`
+		ON `b2b_goods`.`id` = `ord_goods`.`goods_id`
+		LEFT JOIN `ord_order`
+		ON `ord_goods`.`order_id` = `ord_order`.`id`
+		WHERE `ord_order`.`id` 
+		IN (
+			SELECT `order_id` 
+			FROM `ord_batch` 
+			WHERE `batch_id` 
+			IN (SELECT id FROM `ord_order` WHERE  `ord_order`.`pay_time` IS NOT NULL AND `ord_order`.`type1`<![CDATA[  <>  ]]>0)
+			AND is_batch = 0
+			UNION 
+			SELECT id AS order_id FROM `ord_order` WHERE  `ord_order`.`pay_time` IS NOT NULL AND `ord_order`.`type1`<![CDATA[  <>  ]]>0
+			AND `ord_order`.`id` NOT IN 
+			(SELECT `order_id` FROM `ord_batch`)
+		)
+		AND YEAR( `pay_time`  ) = YEAR( CURDATE( ))	
+		GROUP BY goods_name
+		ORDER BY goodsCount DESC
+		LIMIT 0,10
+  </select>
+  
+  <select id="getOrderSalesVolume" resultMap="OrderSalesVolumeResult">
+		SELECT 'month' `time`,COUNT(1) AS 'number',SUM(`amount`) AS money
+		FROM `ord_order`  
+		WHERE MONTH(`pay_time`) = MONTH(CURDATE()) AND YEAR(`pay_time`) = YEAR(CURDATE()) 
+		AND `type1`<![CDATA[  <>  ]]>0
+		UNION 
+		SELECT 'quarter' `time`,COUNT(1) AS 'number',SUM(`amount`) AS money
+		FROM `ord_order`  
+		WHERE QUARTER(`pay_time`) = QUARTER( CURDATE( )) AND YEAR(`pay_time`) = YEAR(CURDATE()) 
+		AND `type1`<![CDATA[  <>  ]]>0
+		UNION
+		SELECT 'year' `time`,COUNT(1) AS 'number',SUM(`amount`) AS money
+		FROM `ord_order`  
+		WHERE YEAR( `pay_time`  ) = YEAR( CURDATE( )) 
+		AND `type1`<![CDATA[  <>  ]]>0
+	</select>
+	
+	<select id="getIdcGoods" resultMap="BaseResultMap">
+	  	select  
+	  	<include refid="Base_Column_List" />
+	    ,
+	    <include refid="Blob_Column_List" />
+	    from b2b_goods where if_idc = 0 and is_buy = 1 order by id DESC
+  	</select>
+	
+</mapper>

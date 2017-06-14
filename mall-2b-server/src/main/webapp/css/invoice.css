@@ -1,0 +1,57 @@
+.other-body{
+	padding: 10px 55px 10px 55px;
+}
+.invoice-body-header{
+	height:50px;
+	background-color: #EAF8FF;
+	line-height: 50px;
+	border: 1px solid #74D2D4;
+}
+.invoice-body-header .time{
+	margin-left:40px;
+}
+.invoice-body-content{
+	border: 1px solid #999;
+	margin-bottom: 30px;
+	border-top: 0px;
+}
+.invoice-body-content .order{
+	
+	border-right: 1px solid #999;
+}
+.invoice-type{
+	border-right: 1px solid #999;
+}
+.invoice-state{
+	border-right: 1px solid #999;
+}
+.tips p{
+	color: #1B9D97;
+}
+.invoice-body{
+	padding-top:30px;
+}
+.order-box{
+	padding:20px;
+	margin-left:-30px;
+	border-bottom: 1px solid #999;
+}
+.order-box2{
+	padding:20px;
+	margin-left:-30px;
+}
+.tips{
+	padding:30px;
+	margin-top:30px;
+	background-color: #FEFDEE;
+}
+.pagination{
+	margin: 40px 0px;
+}
+.invoice-operat a{
+	border:1px solid #FF9351; 
+	background-color:#F8E5DA;
+}
+.invoice-operat a span{
+	color:red;
+}

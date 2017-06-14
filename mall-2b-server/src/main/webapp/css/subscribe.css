@@ -1,0 +1,86 @@
+﻿.subscribe-head{
+	border-bottom: 10px solid #F5F5F5;
+	height: 64px;
+	padding: 13px 50px;
+}
+.title{
+	font-size: 20px;
+	font-weight: bold;
+	color: #666;
+	float: left;
+	padding-right: 37px;
+}
+.my-tag{
+	line-height:32px;
+	float: left;
+	width: 96px;
+	height: 32px;
+	margin-left: 12px;
+	text-align: center;
+	background-image: url("../images/2buser/select.png");
+}
+.more-tag{
+	line-height:32px;
+	font-weight: bold;
+}
+.more-tag a{
+	font-size:14px;
+	cursor: pointer;
+}
+.subscribe-head-2{
+	border-bottom: 10px solid #F5F5F5;
+	padding: 30px 50px;
+	display:none;
+}
+.tag{
+	width: 96px;
+	height: 32px;
+	line-height:32px;
+	text-align:center;
+	float: left;
+	border:1px solid #999; 
+	margin-right: 12px;
+}
+.tags{
+	margin-top: 17px;
+}
+.tag-category{
+	margin-right: 22px;
+	background-image: url("../images/2buser/u234.png");
+	border:0px none;
+}
+.tag-category span{
+	color:#fff; 
+}
+.tag-tag{
+	cursor: pointer;
+}
+.operate{
+	cursor: pointer;
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	margin-left: 85px;
+	margin-top: -41px;
+	//border:1px solid #999; 
+	background-image: url("../images/2buser/cha_u179.png");
+	display:none;
+}
+.subscribe-box{
+	width:860px;
+	height:140px;
+	border: 1px solid #CCCCCC;
+	margin: 30px 45px;
+	border-left: 5px solid #1B9D97;
+	padding:10px;
+}
+.box-title .left{
+	float:left;
+}
+.box-title .right{
+	float:right;
+}
+.box-img img{
+	height:80px;
+	width:120px;
+}
